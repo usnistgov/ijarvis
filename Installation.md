@@ -72,3 +72,25 @@ EMAIL_POST = 25
 python manage.py  dumpdata socialaccount --exclude contenttypes --indent 2 --settings=mdcs.dev_settings >social_users.json
 
 python manage.py  loaddata social_users.json
+
+##############
+
+Newton
+
+1) go to /data/workspace/cdcsstage/deploy/jarvis on the production server, 
+
+2) change CDCS_VERSION to 3.4.0-2023-9-11 in settings/ENV, then copy ENV to .env 
+
+3) and then run "./docker_clean.sh". 
+
+ 
+
+If that doesn't work, you can try 
+
+"docker_clean_all.sh" 
+
+then we'll have to run ./add_users.sh, 
+
+./add_social_users.sh, 
+
+./load_optimade_db.sh.
