@@ -1,0 +1,74 @@
+/* Bootstrap overide */
+.btn.btn-primary {
+    background-color: #007ac1 !important;
+    border-color: #565656;
+}
+
+.btn.btn-primary:hover {
+    background-color: #005f96 !important;
+}
+
+.btn.btn-secondary {
+    background-color: #f9f9f9 !important;
+    border-color: #d4d4d4 !important;
+    color: #313131 !important;
+}
+
+.btn.btn-secondary:hover {
+    background-color: #e2e2e2 !important;
+}
+
+#content {
+    width: calc(100% - 3em);
+    min-height: calc(100% - 151px);
+    background-color: #fff;
+    margin: 0 1.5em;
+    padding: 4.5rem 1.5em 2.5em 1.5em;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+#page-wrapper {
+    height: inherit;
+    display: inline;
+}
+
+.textarea_lock_h {
+    resize: vertical
+}
+
+.alert-danger a {
+    color: #a94442;
+}
+
+.page-item.active .page-link {
+    background-color: #007ac1 !important;
+    border-color: #565656;
+}
+
+.badge {
+    background-color: #505050
+}
+
+a {
+    color: #007aa7;
+}
+
+.sticky {
+    position: fixed !important;
+    width: 100% !important;
+    top: 0 !important;
+}
+
+.sticky + #content {
+    margin-top: 55px;
+}
+
+.modal-footer {
+  justify-content: space-between !important;
+}
+
+.errorlist {
+    color: red;
+    margin-bottom: .1em;
+}

@@ -1,0 +1,137 @@
+html {
+  font-size: 16px;
+  font-family: "Times New Roman", Georgia, Serif;
+}
+
+#menu {
+  width: 400px;
+  margin: 0px auto;
+  webkit-text-shadow: 1px 1px 1px #000;
+  moz-text-shadow: 1px 1px 1px #000;
+  text-shadow: 1px 1px 1px #000;
+  font-size: 40px;
+}
+#slides {
+  display: inline; /* the default for span */
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;
+  background-color: yellow;
+}
+
+#container {
+  width: 100%;
+  margin: 5px auto;
+}
+
+#container:before,
+#container:after {
+  content: "";
+  display: table;
+}
+#container:after {
+  clear: both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+#container {
+  zoom: 1;
+}
+
+.box {
+  border: 0.5px solid black;
+  padding: 20%;
+  text-align: center;
+  font-size: 1.63em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+
+}
+
+.box a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.box:hover {
+  box-shadow: 1px 1px 1px #ccc;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px #000;
+}
+#panelZero {
+  float: right;
+}
+
+#panelOne {
+  float: left;
+  width: 5.5%;
+}
+
+#panelTwo {
+  float: left;
+  width: 5.5%;
+  margin-top: 6%;
+}
+
+#panelThree {
+  float: left;
+  width: 5.5%;
+  margin-top: 18%;
+}
+
+#lowerContainer {
+  float: right;
+  margin-top: 1%;
+  width: 80%;
+}
+
+.bottom {
+  float: left;
+  width: 5.5%;
+}
+
+table,
+td,
+th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 50px;
+}
+.si-wrapper input {
+  font-size: 1.4em;
+  padding: 0.1em;
+  width: 100%;
+}
+.si-mic {
+  align: right;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: 	#00bfff;
+}
+li {
+    float: left;
+}
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color:#000;
+}
