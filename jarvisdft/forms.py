@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+from django import forms
+#from .models import Snippet
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit
+
+
+class ContactForm(forms.Form):
+    # def __init__(self,body='',results='',*args, **kwargs):
+    #    self.body=body
+    #    self.results=results
+    element_input = forms.CharField(
+            widget=forms.TextInput(attrs={"class":"si-input","id":"mytext"})
+        #widget=forms.Textarea(attrs={"rows": 5, "cols": 50, "class": "box"})
+    )
+
+    def __init__(self, *args, **kwargs):
+                    super(ContactForm, self).__init__(*args, **kwargs)
+                    self.fields['element_input'].label = "" 
+                    self.fields['element_input'].initial = "" #"Al2O3" 
+                    #self.fields['mytext'].label=""
+    # results=forms.CharField(widget=forms.Textarea(attrs={'rows': 15, 'cols': 40}),required=False)
+    # name=forms.CharField()
+    # email=forms.EmailField(label='E-mail')
+    # category =forms.ChoiceField(choices=[('question','Question'),('other','Other')])
+    # subject =forms.CharField(required=False)
+    """
+   def __init__(self, *args, **kwargs):
+       super().__init__(*args, **kwargs)
+       self.helper = FormHelper
+       self.helper.form_method = 'post'
+       self.helper.layout = Layout(
+               #'name',
+               #'email',
+               #'category',
+               #'subject',
+               'body',
+               'results',
+               Submit('submit','Submit', css_class='btn-success')
+               )
+   """

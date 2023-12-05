@@ -1,0 +1,28 @@
+sudo cp templates/core_main_app/user/homepage.html ~/Downloads/vag/vagrant/mdcs/templates/core_main_app/user/homepage.html
+sudo cp templates/theme/menu.html ~/Downloads/vag/vagrant/mdcs/templates/theme/menu.html 
+sudo cp templates/theme/footer/default.html ~/Downloads/vag/vagrant/mdcs/templates/theme/footer/default.html
+#run inside folder
+sudo python3 manage.py runserver
+
+
+To add an app: https://djangocentral.com/create-a-hello-world-django-application/
+1) sudo python3 manage.py startapp my_app,
+2)add 'my_app' to mdcs/setting.py,
+3)add 'from my_app import views as mviews' & 're_path('^my_app',  mviews.index,name='my_app')' in mdcs/urls.py
+4) add in 'my_app/views.py' 
+
+
+To add a static page:
+Add the following to urls.py:
+from django.views.generic.base import TemplateView
+urlpatterns = [
+…
+re_path('test', TemplateView.as_view(template_name='test.html'), name='home'),
+]
+Then place your html file in the templates folder (test.html at the root of the templates folder in this case, the path should match the value of template_name).
+Your static page will be available at /test
+
+#Architecture
+The memory is: 16GB
+CPU: 2 CPUs at 2600MHz
+The data for JARVIS is on a 1 TB drive.
