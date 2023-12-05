@@ -1,0 +1,179 @@
+
+
+
+
+<!DOCTYPE html>
+<!-- Developer: Kamal Choudhary, Noah Smith NIST
+The code may not be copied/reused without permission-->
+<meta charset="utf-8">
+<title>JARVIS-DAC</title>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q89M6QHG7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Q89M6QHG7');
+</script>
+</head>
+
+{% load static %}
+<link rel="stylesheet"  href="https://www.ctcms.nist.gov/~knc6/speech-input.css">
+<link rel="stylesheet" type="text/css" href="https://www.ctcms.nist.gov/~knc6/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+ <style>
+.centered-wrapper {
+    position: relative;
+    text-align: center;
+}
+.centered-wrapper:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 0; height: 100%;
+    vertical-align: middle;
+}
+.centered-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.box1 {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
+    margin: 0px;
+    width: 366px;
+    height: 340px;
+}
+
+
+.si-wrapper input {
+  font-size: 1.4em;
+  padding: 0.1em;
+  width: 100%;
+}
+.si-mic {
+  align: right;
+}
+.centered-content {
+	    display: inline-block;
+		        vertical-align: middle;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:   #00bfff;
+}
+li {
+    float: left;
+}
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+li a:hover {
+    background-color:#000;
+}
+
+</style>
+
+
+<ul>
+        <li ><a href="https://jarvis.nist.gov">HOME</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisdft/">DFT</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisff/">FF</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisml/">ML</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisus/">US</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarviswtb/">WTB</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisstm/">STM</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvish/">Hetero</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvissolar/">Solar</a></li>
+        <li ><a href="https://github.com/usnistgov/jarvis">Tools</a></li>
+        <li ><a href="https://jarvis-tools.readthedocs.io/en/master/publications.html">Publications</a></li>
+        <li ><a href="https://jarvis-tools.readthedocs.io/en/master/tutorials.html">Tutorials</a></li>
+        <li ><a href="https://github.com/JARVIS-Materials-Design/jarvis-tools-notebooks">Notebooks</a></li>
+ </ul>
+
+  
+
+ <br>
+
+        <body class="centered-wrapper">
+        <script>
+          if(self == top) {
+            document.documentElement.style.display = 'block';
+          } else {
+             top.location = self.location;
+          }
+        </script>
+
+                <div class="centered-content">
+                        <a href="https://jarvis.nist.gov/" target="_blank"><image align="middle" id="DOS" src="https://www.ctcms.nist.gov/~knc6/jlogo.png"></image></a><font size="30" color="red">Direct Air Capture (DAC)</font><br><br>
+		<h4> This app predicts CO2 adsorption isotherm of an input metal organic framework cystal given in POSCAR format using JARVIS-ALIGNN. </h4>
+                <form  method="post">
+                        <button class="btn-success" type="submit">Submit</button><br>
+                {% csrf_token %}
+                {{ form }}
+
+                <textarea style="font-size: 12pt " class="box1" id="result" name="result" rows="15" cols="50">{{result}} </textarea>
+                </form>
+                <br><br>
+
+
+                </div>
+        </body>
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+ 
+                <h4>JARVIS-ALIGNN was trained on hMOF data with Atomistic Line Graph Neural Network : <a href="https://github.com/usnistgov/alignn" target="_blank"> GitHub</a> <a href="https://www.sciencedirect.com/science/article/pii/S092702562200163X" target="_blank">, Reference</a></h4>
+                <a href="http://www.nist.gov/public_affairs/disclaimer.cfm"> NIST Disclaimer</a>
+
+
+ 
+        
+    
+    
+    
+    </body>
+</html>
+
+

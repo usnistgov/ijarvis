@@ -1,0 +1,169 @@
+
+
+
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>JARVIS-optimade</title>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q89M6QHG7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Q89M6QHG7');
+</script>
+</head>
+
+<!--
+<link rel="stylesheet"  href="https://www.ctcms.nist.gov/~knc6/speech-input.css">
+<link rel="stylesheet" type="text/css" href="https://www.ctcms.nist.gov/~knc6/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+-->
+<link href="https://jarvis-materials-design.github.io/dbdocs/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"> 
+<style>
+
+
+   #custom {margin-left: 35px;font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;}
+   #custom td, #custom th {border: 1px solid #f2f2f2;padding: 8px;}
+   #custom tr:nth-child(odd){background-color:  #D6DBDF ;}
+   #custom tr:nth-child(even){background-color:  #D6DBDF;}
+
+
+
+</style>
+
+ <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/" class="nav-link">HOME</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvisdft/" class="nav-link">DFT</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvisff/" class="nav-link">FF</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvisml/" class="nav-link">ML</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvisus/" class="nav-link">US</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarviswtb/" class="nav-link">WTB</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvisstm/" class="nav-link">STM</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvissolar/" class="nav-link">Solar</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvish/" class="nav-link">Hetero</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/usnistgov/jarvis" class="nav-link">Tools</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis-materials-design.github.io/dbdocs/publications/" class="nav-link">Publications</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis-materials-design.github.io/dbdocs/thedownloads/" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis-materials-design.github.io/dbdocs/tutorials/" class="nav-link">Tutorials</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/JARVIS-Materials-Design/jarvis-tools-notebooks" class="nav-link">Notebooks</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://www.ctcms.nist.gov/~knc6/workshops.html" class="nav-link">Events</a>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+
+ <br>
+ <br>
+ <br>
+ <br>
+
+<body>
+
+ <div style="display: flex; justify-content: center;">
+    
+<a href="https://jarvis.nist.gov/" target="_blank">
+        <image align="right" id="DOS" src="https://www.ctcms.nist.gov/~knc6/jlogo.png">
+</image></a>      <font size="30" color="red">OPTIMADE</font>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="container default-background card-2" >
+
+
+
+
+
+
+
+   
+<br>
+
+<script>
+  if(self == top) {
+    document.documentElement.style.display = 'block';
+  } else {
+     top.location = self.location;
+  }
+</script>
+
+	<p id='custom' >The Open Databases Integration for Materials Design (OPTIMADE)[<a href="https://www.optimade.org/" target="_blank">https://www.optimade.org/</a>] consortium offers a common application programming interface (API) to make materials databases accessible and interoperable. JARVIS-OPTIMADE is designed to provide JARVIS data in REST-API format following OPTIMADE protocols. </p>
+
+
+
+<ul>
+        <li ><a href="./jarvisdft/v1">JARVIS-DFT</a></li>
+ </ul>
+ <br>
+
+
+                {% if result is not False %}
+                <form  method="post">
+                        <button class="btn-success" type="submit">Submit</button><br>
+                {% csrf_token %}
+                {{ form }}
+                 {% endif %}
+                </form>
+   
+    
+
+        
+    
+     
+       
+    </body>
+</html>
+

@@ -1,0 +1,584 @@
+"""
+Django settings for mdcs project.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/2.2/topics/settings/
+
+For the full list of settings and their values, see
+https://docs.djangoproject.com/en/2.2/ref/settings/
+"""
+from .core_settings import *
+import os
+from mongoengine.connection import connect
+
+from core_main_app.utils.logger.logger_utils import (
+    set_generic_handler,
+    set_generic_logger,
+    update_logger_with_local_app,
+)
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = (
+    os.environ["DJANGO_SECRET_KEY"]
+    if "DJANGO_SECRET_KEY" in os.environ
+    else None
+)
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+ALLOWED_HOSTS = (
+    os.environ["ALLOWED_HOSTS"].split(",")
+    if "ALLOWED_HOSTS" in os.environ
+    else []
+)
+# Databases
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "HOST": os.environ["POSTGRES_HOST"]
+        if "POSTGRES_HOST" in os.environ
+        else None,
+        "PORT": int(os.environ["POSTGRES_PORT"])
+        if "POSTGRES_PORT" in os.environ
+        else 5432,
+        "NAME": os.environ["POSTGRES_DB"]
+        if "POSTGRES_DB" in os.environ
+        else None,
+        "USER": os.environ["POSTGRES_USER"]
+        if "POSTGRES_USER" in os.environ
+        else None,
+        "PASSWORD": os.environ["POSTGRES_PASS"]
+        if "POSTGRES_PASS" in os.environ
+        else None,
+    }
+}
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+
+MONGO_HOST = os.environ["MONGO_HOST"] if "MONGO_HOST" in os.environ else ""
+MONGO_PORT = (
+    os.environ["MONGO_PORT"] if "MONGO_PORT" in os.environ else "27017"
+)
+MONGO_DB = os.environ["MONGO_DB"] if "MONGO_DB" in os.environ else ""
+MONGO_USER = os.environ["MONGO_USER"] if "MONGO_USER" in os.environ else ""
+MONGO_PASS = os.environ["MONGO_PASS"] if "MONGO_PASS" in os.environ else ""
+#MONGODB_URI = (
+#    f"mongodb://{MONGO_USER}:{MONGO_PASS}@{MONGO_HOST}:{MONGO_PORT}/{MONGO_DB}"
+#)
+#connect(MONGO_DB, host=MONGODB_URI)
+
+
+BROKER_TRANSPORT_OPTIONS = {
+    "visibility_timeout": 3600,
+    "fanout_prefix": True,
+    "fanout_patterns": True,
+}
+REDIS_HOST = os.environ["REDIS_HOST"] if "REDIS_HOST" in os.environ else ""
+REDIS_PORT = os.environ["REDIS_PORT"] if "REDIS_PORT" in os.environ else "6379"
+REDIS_PASS = os.environ["REDIS_PASS"] if "REDIS_PASS" in os.environ else None
+
+if REDIS_PASS:
+    REDIS_URL = f"redis://:{REDIS_PASS}@{REDIS_HOST}:{REDIS_PORT}"
+else:
+    REDIS_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}"
+BROKER_URL = REDIS_URL
+CELERY_RESULT_BACKEND = REDIS_URL
+CELERYBEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+
+
+# Application definition
+
+INSTALLED_APPS = (
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.sites",
+    "django.contrib.staticfiles",
+    "oauth2_provider",
+    # Extra apps
+    "rest_framework",
+    #'django_saml2_auth',
+    "drf_yasg",
+    # "rest_framework_mongoengine",
+    "menu",
+    "tz_detect",
+    "defender",
+    "captcha",
+    "django_celery_beat",
+    # Django Filters
+    "django_filters",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
+    ## "allauth.socialaccount.providers.github",
+    "allauth.socialaccount.providers.microsoft",
+    ## "allauth.socialaccount.providers.linkedin_oauth2",
+    ## "allauth.socialaccount.providers.orcid",
+    # Core apps
+    "core_main_app",
+    "core_exporters_app",
+    "core_exporters_app.exporters.xsl",
+    "core_website_app",
+    # "core_explore_periodic_table_app",
+    ##"core_oaipmh_common_app",
+    ##"core_oaipmh_harvester_app",
+    ##"core_oaipmh_provider_app",
+    "core_curate_app",
+    "core_parser_app",
+    "core_parser_app.tools.modules",  # FIXME: make modules an app
+    "core_parser_app.tools.parser",  # FIXME: make parser an app
+    "core_composer_app",
+    "core_explore_federated_search_app",
+    "core_federated_search_app",
+    "core_explore_common_app",
+    #"core_explore_oaipmh_app",
+    "core_explore_example_app",
+    "core_explore_keyword_app",
+    "core_dashboard_app",
+    "core_dashboard_common_app",
+    "core_file_preview_app",
+    "core_linked_records_app",
+    # modules
+    "core_module_blob_host_app",
+    "core_module_remote_blob_host_app",
+    "core_module_advanced_blob_host_app",
+    "core_module_excel_uploader_app",
+    "core_module_periodic_table_app",
+    "core_module_chemical_composition_app",
+    "core_module_chemical_composition_simple_app",
+    "core_module_text_area_app",
+    # Local apps
+    "mdcs_home",
+    "jarvisml",
+    "alignn",
+    "jarvisdft",
+    "jarvisff",
+    "jarvischemnlp",
+    "jarvisbdft",
+    "jarviswtb",
+    "jarvish",
+    "jarvisstm",
+    "jarvissolar",
+    "jarvisviz",
+    "events",
+    "jarvisus",
+    "jarvisqetb",
+    "optimade",
+    "jdac",
+    "jalignnff",
+    "jcatalysis",
+    "jstem",
+    "jxrd",
+    #"jarvisdft2",
+    #"leaderboard",
+    #"project_docs",
+    "crispy_forms",
+)
+
+MIDDLEWARE = (
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "defender.middleware.FailedLoginMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "tz_detect.middleware.TimezoneMiddleware",
+)
+
+
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": ["templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "core_main_app.utils.custom_context_processors.domain_context_processor",  # Needed by any curator app
+                "django.template.context_processors.i18n",
+            ],
+        },
+    },
+]
+
+ROOT_URLCONF = "mdcs.urls"
+
+WSGI_APPLICATION = "mdcs.wsgi.application"
+
+
+# Internationalization
+# https://docs.djangoproject.com/en/2.2/topics/i18n/
+
+LANGUAGE_CODE = "en-us"
+
+TIME_ZONE = "UTC"
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
+LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+STATIC_URL = "/static/"
+STATIC_ROOT = "static.prod"
+
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+)
+
+STATICFILES_DIRS = ("static",)
+# django-mkdocs demo parameters!
+PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
+DOCUMENTATION_ROOT = PROJECT_DIR + '/project_docs'
+DOCUMENTATION_HTML_ROOT = DOCUMENTATION_ROOT + '/site'
+DOCUMENTATION_ACCESS_FUNCTION = lambda user: user.is_admin
+# Password Validators
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "OPTIONS": {
+            "min_length": 8,
+        },
+    },
+    {
+        "NAME": "core_main_app.commons.validators.UpperCaseLetterCountValidator",
+        "OPTIONS": {
+            "min_uppercase_letters": 1,
+        },
+    },
+    {
+        "NAME": "core_main_app.commons.validators.LowerCaseLetterCountValidator",
+        "OPTIONS": {
+            "min_lowercase_letters": 1,
+        },
+    },
+    {
+        "NAME": "core_main_app.commons.validators.NonAlphanumericCountValidator",
+        "OPTIONS": {
+            "min_nonalphanumeric_letters": 1,
+        },
+    },
+    {
+        "NAME": "core_main_app.commons.validators.DigitsCountValidator",
+        "OPTIONS": {
+            "min_digits": 1,
+        },
+    },
+    {
+        "NAME": "core_main_app.commons.validators.MaxOccurrenceCountValidator",
+        "OPTIONS": {
+            "max_occurrence": 5,
+        },
+    },
+]
+
+# Django REST Framework
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "optimade.pagination.Pagination",
+    #'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    "PAGE_SIZE": 100,
+    "DEFAULT_METADATA_CLASS": "optimade.meta.MyCustomMetadata",
+    #'DEFAULT_METADATA_CLASS': 'rest_framework_json_api.metadata.JSONAPIMetadata',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        # "rest_framework.authentication.BasicAuthentication",
+        # "rest_framework.authentication.SessionAuthentication",
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+        # "django_filters.rest_framework.DjangoFilterBackend",
+    ),
+}
+
+# drf-yasg
+SWAGGER_SETTINGS = {
+    "exclude_namespaces": [],  # List URL namespaces to ignore
+    "api_version": "1.1",  # Specify your API's version
+    "api_path": "/",  # Specify the path to your API not a root level
+    "enabled_methods": [  # Specify which methods to enable in Swagger UI
+        "get",
+        "post",
+        "put",
+        "patch",
+        "delete",
+    ],
+    "api_key": "",  # An API key
+    "is_authenticated": False,  # Set to True to enforce user authentication,
+    "is_superuser": False,  # Set to True to enforce admin only access
+    "LOGIN_URL": "core_main_app_login",
+    "LOGOUT_URL": "core_main_app_logout",
+}
+
+# Django Defender
+DEFENDER_REDIS_URL = REDIS_URL
+""" :py:class:`str`: The Redis url for defender. 
+"""
+DEFENDER_COOLOFF_TIME = 60
+""" integer: Period of inactivity after which old failed login attempts will be forgotten
+"""
+DEFENDER_LOGIN_FAILURE_LIMIT = 3
+""" integer: The number of login attempts allowed before a record is created for the failed login.
+"""
+DEFENDER_STORE_ACCESS_ATTEMPTS = True
+""" boolean: Store the login attempt to the database.
+"""
+DEFENDER_USE_CELERY = True
+""" boolean: Use Celery to store the login attempt to the database.
+"""
+DEFENDER_LOCKOUT_URL = "/locked"
+""" string: url to the defender error page (defined in core_main_app)
+"""
+
+# Django simple-menu
+MENU_SELECT_PARENTS = False
+
+# mdcs_home
+HOMEPAGE_NB_LAST_TEMPLATES = 6
+""" integer: How many templates are displayed on the homepage
+"""
+
+# Logging
+
+LOGGING_SERVER = True
+LOGGING_CLIENT = True
+LOGGING_DB = True
+
+LOGGER_FILE_SERVER = os.path.join(BASE_DIR, "logfile_server.txt")
+LOGGER_FILE_CLIENT = os.path.join(BASE_DIR, "logfile_client.txt")
+LOGGER_FILE_DB = os.path.join(BASE_DIR, "logfile_db.txt")
+LOGGER_FILE_SECURITY = os.path.join(BASE_DIR, "logfile_security.txt")
+LOGGER_FILE_APP = os.path.join(BASE_DIR, "logfile_app.txt")
+
+LOGGER_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+LOGGER_CLIENT_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "INFO")
+LOGGER_SERVER_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+LOGGER_DB_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+LOGGER_APP_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+
+LOGGER_MAX_BYTES = 500000
+LOGGER_BACKUP_COUNT = 2
+
+local_logger_conf = {
+    "handlers": ["app_handler", "console"],
+    "level": LOGGER_APP_LEVEL,
+}
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "fmt-default": {
+            "format": "%(levelname)s: %(asctime)s\t%(name)s\t%(pathname)s\tl.%(lineno)s\t%(message)s",
+            "datefmt": "%Y-%m-%d %H:%M:%S",
+        },
+    },
+    "handlers": {
+        "logfile-security": {
+            "level": "DEBUG",
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": LOGGER_FILE_SECURITY,
+            "maxBytes": LOGGER_MAX_BYTES,
+            "backupCount": LOGGER_BACKUP_COUNT,
+            "formatter": "fmt-default",
+        },
+        "console": {
+            "level": "INFO",
+            "class": "logging.StreamHandler",
+            "formatter": "fmt-default",
+        },
+        "app_handler": {
+            "level": LOGGER_APP_LEVEL,
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": LOGGER_FILE_APP,
+            "maxBytes": LOGGER_MAX_BYTES,
+            "backupCount": LOGGER_BACKUP_COUNT,
+            "formatter": "fmt-default",
+        },
+    },
+    "loggers": {
+        "django.security": {
+            "handlers": ["console", "logfile-security"],
+            "level": LOGGER_LEVEL,
+            "propagate": True,
+        },
+    },
+}
+
+update_logger_with_local_app(LOGGING, local_logger_conf, INSTALLED_APPS)
+
+if LOGGING_CLIENT:
+    set_generic_handler(
+        LOGGING,
+        "logfile-template",
+        LOGGER_CLIENT_LEVEL,
+        LOGGER_FILE_CLIENT,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING,
+        "django.template",
+        LOGGER_CLIENT_LEVEL,
+        ["console", "logfile-template"],
+    )
+    set_generic_handler(
+        LOGGING,
+        "logfile-request",
+        LOGGER_CLIENT_LEVEL,
+        LOGGER_FILE_CLIENT,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING,
+        "django.request",
+        LOGGER_CLIENT_LEVEL,
+        ["console", "logfile-request"],
+    )
+
+if LOGGING_SERVER:
+    set_generic_handler(
+        LOGGING,
+        "logfile-server",
+        LOGGER_SERVER_LEVEL,
+        LOGGER_FILE_SERVER,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING,
+        "django.server",
+        LOGGER_SERVER_LEVEL,
+        ["console", "logfile-server"],
+    )
+
+if LOGGING_DB:
+    set_generic_handler(
+        LOGGING,
+        "logfile-django-db-backend",
+        LOGGER_DB_LEVEL,
+        LOGGER_FILE_DB,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING,
+        "django.db.backends",
+        LOGGER_DB_LEVEL,
+        ["console", "logfile-django-db-backend"],
+    )
+
+
+# SSL
+
+if SERVER_URI.lower().startswith("https"):
+    # Activate HTTPS
+    os.environ["HTTPS"] = "on"
+
+    # Secure cookies
+    CSRF_COOKIE_SECURE = True
+    CSRF_COOKIE_AGE = None
+    SESSION_COOKIE_SECURE = True
+    SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+    SESSION_COOKIE_AGE = 604800
+
+    # Set x-frame options
+    X_FRAME_OPTIONS = "SAMEORIGIN"
+# """
+###ALL AUTH STUFF
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+SOCIALACCOUNT_PROVIDERS = {
+    "microsoft": {
+        "TENANT": "organizations",
+        "APP": {
+            "client_id": "d8945db9-fea7-491a-ab3d-29660b316bb4",
+            "secret": "h547Q~h7sdkEjo_~X9qeo53HxmI.gHjjozZKU",
+        },
+    },
+
+    # "github": {
+    #    "SCOPE": [
+    #        "user",
+    #        "repo",
+    #        "read:org",
+    #    ],
+    #    "APP": {
+    #        "client_id": "471635a18ad449e4dfe0",
+    #        "secret": "e8f8c1a875bfc56b43f8ea4c9ec596a2bf717c24",
+    #    },
+    # },
+    "google": {
+        "SCOPE": [
+            "https://www.googleapis.com/auth/userinfo.profile",
+            "https://www.googleapis.com/auth/userinfo.email",
+        ],
+        "APP": {
+            "client_id": "167538912423-42hhd2729lpm5i066eee40nobl67cf99.apps.googleusercontent.com",
+            "secret": "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",
+            "key": "",
+        },
+        "AUTH_PARAMS": {"access_type": "offline"},
+    },
+    # "orcid": {
+    #    "APP": {
+    #        "client_id": "APP-Y77EMDHMJ1WGY1FR",
+    #        "secret": "139c758b-b15e-45e7-b064-2ae40eb603af",
+    #    }
+    # },
+    # "linkedin_oauth2": {
+    #    "SCOPE": ["r_liteprofile","r_emailaddress"],
+    #    "PROFILE_FIELDS": ["id", "email-address"],
+    #    "APP": {"client_id": "78klicbo9eddgn", "secret": "re6DDFxyniMisW8l"},
+    # },
+}
+from core_main_app.permissions.rights import CONTENT_TYPE_APP_LABEL
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = "/"  # "core_main_app_login"
+ACCOUNT_UNIQUE_EMAIL = False
+ACCOUNT_UNIQUE_USERNAME = True
+# SOCIALACCOUNT_QUERY_EMAIL = True
+###ACCOUNT_EMAIL_VERIFICATION = "optional"
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_USERNAME_REQUIRED = True
+# SOCIALACCOUNT_AUTO_SIGNUP = True
+ACCOUNT_FORMS = {
+    "signup": "mdcs.forms.CustomSignupForm",
+}
+# SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY='78etsvxgeiqr31'
+# SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET='vuRPoCYTVtTGG5jM'
+# """

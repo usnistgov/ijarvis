@@ -1,0 +1,175 @@
+{% load menu %}
+{% load static %}
+{% load get_attribute %}
+
+
+<!--
+<div class="right">
+   <img id="mgi-diagram" src="https://www.ctcms.nist.gov/~knc6/jlogo.png" alt="JARVIS Diagram">
+</div>
+-->
+<nav id="nav">
+   <ul  >
+      <!-- Start MDCS title left -->
+      <li id="cdcs-main" style="padding:0;">
+         <div id="cdcs-menu-title">
+            <a href="https://jarvis.nist.gov/" title="NIST-JARVIS">
+            JARVIS
+            </a>
+         </div>
+      </li>
+      <!-- End MDCS title left -->
+      <!-- Start float left menu
+      NOT REALL NEEDED 
+      {% block navigation_menu %}
+      {% generate_menu %}
+      {% for item in menus.nodropdown %}
+      <li>
+         <a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a>
+      </li>
+      {% endfor %}
+      <li class="nested">
+         <a href="#">
+         Data Exploration <i class="fa fa-caret-down"></i></a>
+         </a>
+         <ul>
+            {% generate_menu %}
+            {% for item in menus.explorer %}
+            <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+            {% endfor %}
+         </ul>
+      </li>
+      <li class="nested">
+         <a href="#">
+         Composer <i class="fa fa-caret-down"></i>
+         </a>
+         <ul>
+            {% generate_menu %}
+            {% for item in menus.composer %}
+            {% if not item.require_authentication or user.is_authenticated %}
+            <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+         </ul>
+      </li>
+      -->
+      <li class="nested">
+         <a href="./jarvisdft/">DFT</a>
+      </li>
+      <li class="nested">
+         <a href="./jarvisff/">FF</a>
+      </li>
+      <li class="nested">
+         <a href="./jarvisml/">ML</a>
+      </li>
+      <li class="nested">
+         <a href="./jalignn/">ALIGNN</a>
+      </li>
+      <li class="nested">
+         <a href="./jarvisqetb/">QETB</a>
+      </li>
+      <li class="nested">
+         <a href="https://github.com/usnistgov/jarvis">Tools</a>
+      </li>
+      <li class="nested">
+         <a href="./jarvissolar/">Solar</a>
+      </li>
+      <li class="nested">
+         <a href="./jarviswtb/">
+         WTB
+         </a>
+      </li>
+      <li class="nested">
+         <a href="./jarvisstm/">
+         STM
+         </a>
+      </li>
+      <li class="nested">
+         <a href="./jarvish/">
+         Hetero
+         </a>
+      </li>
+      <li class="nested">
+         <a href="./jarvisus/">US</a>
+      </li>
+      <!--
+      <li class="nested">
+         <a href="./optimade/">
+         OPTIMADE
+         </a>
+      </li>
+      -->
+      <!--
+      <li class="nested">
+         <a href="https://jarvis-materials-design.github.io/dbdocs/publications/">Pubs.</a>
+      </li>
+      <li class="nested">
+         <a href="https://github.com/JARVIS-Materials-Design/jarvis-tools-notebooks">Colab</a>
+      </li>
+      <li class="nested">
+         <a href="https://jarvis-materials-design.github.io/dbdocs/thedownloads/">Downloads</a>
+      </li>
+      <li class="nested">
+         <a href="https://jarvis-materials-design.github.io/dbdocs/tutorials/">Tutorials</a>
+      </li>
+      <li class="nested">
+         <a href="https://www.ctcms.nist.gov/~knc6/workshops.html">
+         Events
+         </a>
+      </li>
+      -->
+      {% endblock %}
+      <!-- End float right menu-->
+      <!-- Start float right menu-->
+      <li class="nested float-right">
+         {% if user.is_authenticated %}
+         <a href="#">
+         <i class="fa fa-user-circle-o"></i> {{ user }} <i class="fa fa-caret-down"></i>
+         </a>
+         <ul>
+            {% block dashboard_menu %}
+            {% generate_menu %}
+            {% for item in menus.dashboard %}
+            <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+            {% endfor %}
+            {% endblock %}
+            <li class="divider"></li>
+            {% block user_menu %}
+            {% generate_menu %}
+            {% for item in menus.user %}
+            <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+            {% endfor %}
+            {% endblock %}
+            {% if user.is_staff %}
+            <li><a href="{% url 'core-admin:core_main_app_admin_home' %}" class="cdcs-menu-item"><i class="fa fa-cog"></i> Administration</a></li>
+            {% endif %}
+            <li><a href="{% url 'core_main_app_logout' %}" class="cdcs-menu-item"><i class="fa fa-sign-out"></i> Logout</a></li>
+         </ul>
+         {% else %}
+         <a href="{% url 'core_main_app_login' %}">
+         <i class="fa fa-sign-in"></i> Log In / Sign Up
+         </a>
+         {% endif %}
+      </li>
+      <li class="nested float-right">
+         <a href="https://matsci.org/c/jarvis/48/">Forum</a>
+      </li>
+      <li class="nested float-right">
+         <a href="./events/">Events</a>
+      </li>
+      <!--
+      <li class="nested float-right">
+         <a href="#">
+         Help <i class="fa fa-caret-down"></i>
+         </a>
+         <ul>
+            {% generate_menu %}
+            {% for item in menus.help %}
+            <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+            {% endfor %}
+         </ul>
+      </li>
+      -->
+      <!-- End float right menu-->
+   </ul>
+</nav>

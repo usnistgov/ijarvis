@@ -1,0 +1,93 @@
+<div class="column" style="width:80%;margin-left:10%;margin-right:10%">
+	    <!-- <div class="col-md-12 form-login" style="width:80%;height:auto;margin-left:10%;margin-right:10%"  > -->
+	          <h2 style="display:flex;justify-content:center;align-items:center;flex-direction:row">Login with GMail or Microsoft account by clicking on an icon below</h2>
+	    <div style="display:flex;justify-content:center;align-items:center;flex-direction:row" >
+
+		  <div style="padding:1px;height:40px;">
+			<span> <a href="/accounts/google/login/?process=login"><img src="https://cdn.vox-cdn.com/thumbor/Tbqi3ZF9Qz0fTJIUvkgQe3FdN0k=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/21939811/newgmaillogo.jpg" style="width:auto;height:65px;" ></a></span>
+	          </div>
+		  <div style="padding:9px;height:85px;">
+			<span> <a href="/accounts/microsoft/login/?process=login"><img src="https://cdn.vox-cdn.com/thumbor/0pAzN6LdawcEO1pxZXy-78_VgVU=/7x0:633x417/1400x1050/filters:focal(7x0:633x417):format(jpeg)/cdn.vox-cdn.com/assets/1311169/mslogo.jpg" style="width:auto;height:95px;" ></a></span>
+	          </div>
+		  <!--
+		  <div style="padding:9px;height:47px;">
+			<span> <a href="/accounts/github/login/?process=login"><img src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Emblem.png" style="width:auto;height:55px;" ></a></span>
+	          </div>
+		  <div style="padding:5px;height:60px;">
+			<span> <a href="/accounts/orcid/login/?process=login"><img src="https://orcid.org/assets/vectors/orcid.logo.svg" style="width:65px;height:65px;" ></a></span>
+	          </div>
+		  -->
+	    </div>
+
+           <div class="socialaccount_ballot">
+               <ul class="socialaccount_providers">
+		  <!--
+                  <li>
+
+                      <a title="GMail" class="socialaccount_provider google" 
+                      href="/accounts/google/login/?process=login">Gmail</a>
+                  </li>
+                  <li>
+                      <a title="GitHub" class="socialaccount_provider github" 
+                      href="/accounts/github/login/?process=login">GitHub</a>
+                  </li>
+                   -->
+
+               </ul>
+	       <h2 style="text-align:center">Or Login with your personal email</h2>
+          <!-- <h2 style="text-align:center">Login</h2> -->
+
+        {% if data.login_error %}
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-circle"></i> Invalid username and/or password. Please try again or
+            contact an administrator for any assistance.
+        </div>
+        {% endif %}
+        {% if data.login_locked %}
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i> Your username is not activated yet. Please check back soon or
+            contact an administrator for any assistance.
+        </div>
+        {% endif %}
+
+        <form method="post" action="{% url 'core_main_app_login' %}" class="form-horizontal">
+            {% csrf_token %}
+
+            {% for field in data.login_form.visible_fields %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                <div>
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+
+            {% for field in data.login_form.hidden_fields %}
+                {{ field }}
+            {% endfor %}
+
+            <div class="form-group">
+                <div class="row">
+                    {% if data.with_website_features %}
+                    <div class="col-9">
+                        <a class="btn btn-secondary btn-lg request account" 
+                           href="{% url 'core_website_app_account_request' %}">
+                            <i class="fas fa-user-plus"></i> Request an Account
+                        </a>
+                        <a class="btn btn-secondary btn-lg"  href="{% url 'password_reset' %}">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Forgot password
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-lg btn-primary float-right">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <p> Disclaimer: Login with Gmail or Microsoft automatically shares additional information about you.  This information is not necessary for NIST purposes and will be parsed out, deleted, and not otherwise used by NIST. NIST will only retain your service ID, email, and first and last name for authentication to the service. </p> 
+</div>

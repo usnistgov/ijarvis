@@ -1,0 +1,865 @@
+<title>NIST-JARVIS</title>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q89M6QHG7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Q89M6QHG7');
+</script>
+</head>
+<style>
+   #my-content-text ul {list-style-type: none;margin: 0;padding: 0;overflow: hidden;background-color:    #333399;}
+   #my-content-text{margin-left: 20px;margin-right: 20px;border:3px solid #989898 ;padding:5px;}
+   #custom {margin-left: 20px;font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;}
+   #custom td, #custom th {border: 1px solid #f2f2f2;padding: 8px;}
+   #custom tr:nth-child(odd){background-color:  #D6DBDF ;}
+   #custom tr:nth-child(even){background-color:  #D6DBDF;}
+</style>
+{% load static %} 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<div style="border:3px; border-style:solid; border-color:#808080" class="textborder";>
+   <div class="row">
+      <div class = "custom"  >
+	      <p id='custom'  >JARVIS (Joint Automated Repository for Various Integrated Simulations) is a repository designed to automate materials discovery and optimization using classical force-field, density functional theory, machine learning calculations and experiments. Access to the database and web-apps requires a user-credential. User-registration is free, click on the  <a href="./login" target="_blank">Login/Sign up</a> button. Find more details about JARVIS in: <a href="https://www.nature.com/articles/s41524-020-00440-1" target="_blank">https://www.nature.com/articles/s41524-020-00440-1</a> and  <a href="https://jarvis-tools.readthedocs.io/en/master/publications.html" target="_blank">other publications</a>. For upcomnig events, checkout the <a href="./events" target="_blank">JARVIS-Events</a>  page. 
+         </p>
+<div class="container">
+        <p align="center">
+	<iframe width="620" align="center" height="415" src="https://www.youtube.com/embed/P0ZcHXOC6W0?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+        </p>
+         <h2 id='custom' align="center" style="color: #2e6c80;">Resources</h2>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvisdft" target="_blank">
+          <img src="../../../static/img/JDFT.PNG" class = "img-thumbnail" alt="JARVIS-DFT" title="DFT"  style="width:100%">
+          <div class="caption">
+            <p  class="text-center font-weight-bold">Density functional theory</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvisff" target="_blank">
+          <img src="../../../static/img/JFF.PNG" class = "img-thumbnail" alt="JARVIS-FF" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Force-field</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvisqetb" target="_blank">
+          <img src="../../../static/img/JQETB.PNG" class = "img-thumbnail" alt="JARVIS-QETB" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">JARVIS-QETB</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jalignn" target="_blank">
+          <img src="../../../static/img/JALIGNN.PNG" class = "img-thumbnail" alt="JARVIS-ALIGNN" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">JARVIS-ALIGNN</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvisml" target="_blank">
+          <img src="../../../static/img/JML.PNG" class = "img-thumbnail" alt="JARVIS-ML" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Machine learning (CFID)</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarviswtb" target="_blank">
+          <img src="../../../static/img/JWTB.JPG" class = "img-thumbnail" alt="JARVIS-WTB" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Wannier tight-binding</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://jarvis-tools.readthedocs.io/en/master/tutorials.html" target="_blank">
+          <img src="../../../static/img/TUTOR.PNG" class = "img-thumbnail" alt="JARVIS-DB DOCS" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Tutorials & Documentation</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://jarvis-tools.readthedocs.io/en/master/databases.html" target="_blank">
+          <img src="../../../static/img/DATABASES.PNG" class = "img-thumbnail" alt="JARVIS-Databases" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Figshare based datasets</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://github.com/usnistgov/jarvis" target="_blank">
+          <img src="../../../static/img/JTOOLS.JPG" class = "img-thumbnail" alt="JARVIS-Tools" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">JARVIS-Tools</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://pages.nist.gov/jarvis_leaderboard/" target="_blank">
+          <img src="../../../static/img/LEADER.PNG" class = "img-thumbnail" alt="JARVIS-Leaderboard" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Leaderboard</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://github.com/usnistgov/tb3py" target="_blank">
+          <img src="../../../static/img/TB3PY.PNG" class = "img-thumbnail" alt="JARVIS-TB3py" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">TB3py</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvischemnlp" target="_blank">
+          <img src="../../../static/img/Chemnlp.PNG" class = "img-thumbnail" alt="JARVIS-ChemNLP" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">ChemNLP</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvish" target="_blank">
+          <img src="../../../static/img/JWH.JPG" class = "img-thumbnail" alt="JARVIS-Hetero" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Heterostructure</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvisstm" target="_blank">
+          <img src="../../../static/img/JSTM.JPG" class = "img-thumbnail" alt="JARVIS-Slides" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Scanning tunneling microscopy</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://github.com/JARVIS-Materials-Design/jarvis-tools-notebooks" target="_blank">
+          <img src="../../../static/img/JNB.JPG" class = "img-thumbnail" alt="JARVIS-NB" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Jupyter/Colab Notebooks</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <!--
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvisbdft" target="_blank">
+          <img src="../../../static/img/BDFT.PNG" class = "img-thumbnail" alt="Publications" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Beyond DFT</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    -->
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvisbdft" target="_blank">
+          <img src="../../../static/img/BDFT.PNG" class = "img-thumbnail" alt="BDFT" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">BeyondDFT</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvissolar" target="_blank">
+          <img src="../../../static/img/JSOL.PNG" class = "img-thumbnail" alt="JARVIS-Slides" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Solar cells</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvisus" target="_blank">
+          <img src="../../../static/img/JUS1.PNG" class = "img-thumbnail" alt="JARVIS-Universal Search" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">JARVIS-Universal Search</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jalignnff" target="_blank">
+          <img src="../../../static/img/jalignnff.PNG" class = "img-thumbnail" alt="ALIGNN-FF" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">ALIGNN-FF</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jcatalysis" target="_blank">
+          <img src="../../../static/img/jcatalysis.PNG" class = "img-thumbnail" alt="JARVIS-Catalysis" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Catalysis</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./optimade/jarvisdft/v1/structures" target="_blank">
+          <img src="../../../static/img/joptimade.PNG" class = "img-thumbnail" alt="JARVIS-OPTIMADE" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">OPTIMADE</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jstem" target="_blank">
+          <img src="../../../static/img/jstem.PNG" class = "img-thumbnail" alt="STEM" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Scanning transmission electron microscopy</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jdac" target="_blank">
+          <img src="../../../static/img/jdac.PNG" class = "img-thumbnail" alt="JARVIS-DAC" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Carbon capture</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://github.com/usnistgov/chemnlp" target="_blank">
+          <img src="../../../static/img/gchemnlp.PNG" class = "img-thumbnail" alt="JARVIS-ChemNLP" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">ChemNLP</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://github.com/usnistgov/atomqc" target="_blank">
+          <img src="../../../static/img/ATOMQC.PNG" class = "img-thumbnail" alt="AtomQC" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Atomistic Quantum Computation</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://github.com/usnistgov/atomvision" target="_blank">
+          <img src="../../../static/img/ATOMVISION.PNG" class = "img-thumbnail" alt="JARVIS-AtomVision" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Atomistic Vision</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://github.com/usnistgov/alignn" target="_blank">
+          <img src="../../../static/img/ALIGNN.PNG" class = "img-thumbnail" alt="JARVIS-ALIGNNTools" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Atomistic Line Graph NN</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://jarvis-tools.readthedocs.io/en/master/publications.html" target="_blank">
+          <img src="../../../static/img/PUBS.PNG" class = "img-thumbnail" alt="JARVIS-EVENTS" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Publications</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://www.slideshare.net/KAMALCHOUDHARY4" target="_blank">
+          <img src="../../../static/img/JSL.JPG" class = "img-thumbnail" alt="JARVIS-Slides" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">Slides</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="./jarvisviz" target="_blank">
+          <img src="../../../static/img/JVIZ.PNG" class = "img-thumbnail" alt="JARVIS-Visualization" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">JARVIS-Visualization</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://jarvis.nist.gov/events/aims" target="_blank">
+          <img src="../../../static/img/AIMS.PNG" class = "img-thumbnail" alt="JARVIS-EVENTS" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">AIMS workshop</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://jarvis.nist.gov/events/qmms" target="_blank">
+          <img src="../../../static/img/QMMS.PNG" class = "img-thumbnail" alt="JARVIS-Slides" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">QMMS workshop</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="https://jarvis.nist.gov/events/school" target="_blank">
+          <img src="../../../static/img/School.PNG" class = "img-thumbnail" alt="JARVIS-Visualization" style="width:100%">
+          <div class="caption">
+            <p class="text-center font-weight-bold">JARVIS-School</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+ 
+
+
+  
+
+
+<!--
+    <h2  align="center" style="color: #2e6c80;">NIST-JARVIS Resources</h2>
+         <table  align="center" class="table table-striped" style="max-width:700px;">
+            <thead class="thead-dark">
+               <tr>
+                  <th>Resource</td>
+                  <th>Summary</td>
+                  <th>Website</td>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>Homepage</td>
+                  <td>Description and API</td>
+                  <td><a href="https://jarvis.nist.gov/" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>DFT</td>
+                  <td>Density functional theory data</td>
+                  <td><a href="./jarvisdft" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>FF</td>
+                  <td>Evaluation of classical force field</td>
+                  <td><a href="./jarvisff" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>ML</td>
+                  <td>Machine learning models </td>
+                  <td><a href="./jarvisml" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>Tools</td>
+                  <td>Scripts for running simulations</td>
+                  <td><a href="https://github.com/usnistgov/jarvis" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>Downloads</td>
+                  <td>Downloadable metadata</td>
+                  <td><a href="https://www.ctcms.nist.gov/~knc6/downloads.html " target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>Notebooks</td>
+                  <td>Jupyter/Google-Colab notebooks</td>
+                  <td><a href="https://github.com/JARVIS-Materials-Design/jarvis-tools-notebooks" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>Heterostructure</td>
+                  <td>2D heterostructure properties</td>
+                  <td><a href="./jarvish" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>STM</td>
+                  <td>STM images for 2D materials</td>
+                  <td><a href="./jarvisstm" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>WannierTB</td>
+                  <td>Wannier tight binding models</td>
+                  <td><a href="./jarviswtb" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>BeyondDFT</td>
+                  <td>High-level ab-initio methods</td>
+                  <td><a href="./jarvisbdft" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>Publications</td>
+                  <td>JARVIS-related publications</td>
+                  <td><a href="https://www.ctcms.nist.gov/~knc6/pubs.html" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>Tools docs</td>
+                  <td>Documentation</td>
+                  <td><a href="https://jarvis-tools.readthedocs.io" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>Tools pypi</td>
+                  <td>Pypi repository of tools</td>
+                  <td><a href="https://pypi.org/project/jarvis-tools" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>Workshops</td>
+                  <td>JARVIS-related workshops</td>
+                  <td><a href="https://www.ctcms.nist.gov/~knc6/workshops.html" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+               <tr>
+                  <td>SlideShare</td>
+                  <td>Collection of presentation slides</td>
+                  <td><a href="https://www.slideshare.net/KAMALCHOUDHARY4" target="_blank" rel="noopener"> Link</a></td>
+               </tr>
+            </tbody>
+         </table>
+
+	 -->
+
+	 <br>
+<!--start container-->
+
+          <div class="container">
+         <h2 id='custom' align="center" style="color: #2e6c80;">Statistics</h2>
+            <!--card stats start-->
+            <div class="row">
+              <div class="col s12 m12 l12">
+              </div>
+            </div>
+            <div id="card-stats">
+              <div class="row">
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">JARVIS-DFT materials (77096)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">JARVIS-FF materials (2538)</p>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">JARVIS-ML (1429605)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">OptB88vdW bandgaps and formation energies (77096)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">TBmBJ bandgaps (18293)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">Elastic Tensors (25513)</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+
+
+              <div class="row">
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">Topological SOC spillage (11383)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">Infrared intensities (4801)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold"> Dielectric function (15860)</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+
+              <div class="row">
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">2D exfoliation energy (812)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">Carrier effective mass (17642)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">Piezoelectric tensors (4801)</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+              <div class="row">
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">Seebeck coeff. (23210)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">Electric field gradient (11865)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">Solar-SLME (8614)</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+
+              <div class="row">
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">JARVIS-WannierTB (1771)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">JARVIS-STM (1432)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m6 l4">
+                  <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 blue-text">
+                    <div class="padding-1">
+                        <p class="text-center font-weight-bold">JARVIS-Hetero (226778)</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+            <!--card stats end-->
+        </section>
+        <!-- END CONTENT -->
+         <br>
+         <br>
+         <br>
+         <p id='custom' style="color: #2e6c80;">
+            Founder and developer: <a href="https://www.nist.gov/people/kamal-choudhary" target="_blank"> Dr. Kamal Choudhary</a>
+         </p>
+         <p id='custom' style="color: #2e6c80;"> Contributors: (Drs.) Francesca Tavazza, Kevin F. Garrity,  Andrew C. E. Reid, Brian DeCost,  Adam J. Biacchi, Ramya Gurunathan, Daniel Wines, Taner Yildirim, Angela R. Hight Walker, Zachary Trautt, Jason Hattrick-Simpers, A. Gilad Kusne, Andrea Centrone, Albert Davydov, Jie Jiang, Ruth Pachter, Gowoon Cheon, Evan Reed, Ankit Agarwal, Xiaofeng Qian, Vinit Sharma, Houlong Zhuang, Sergei Kalinin, Ghanshyam Pilania,  Pinar Acar, Subhasish Mandal, Kristjan Haule, David Vanderbilt, Igor Mazin, Karin Rabe, Mark Kasule.
+         </p>
+         </p>
+      </div>
+   </div>
+</div>
+
+
+<br>
+<!--
+<div class="container d-flex justify-content-center">
+  <a href="https://www.linkedin.com/company/jarvisnist" target="_blank" class="btn btn-block btn-social btn-linkedin" style="font-size: 25px;"> <span class="fa fa-linkedin"></span>Linkedin</a>
+  <a href="https://www.facebook.com/jarvisnist" target="_blank" class="btn btn-block btn-social btn-facebook" style="font-size: 25px;"> <span class="fa fa-facebook"></span>Facebook</a>
+  <a href="https://twitter.com/jarvisnist" target="_blank" class="btn btn-block btn-social btn-twitter" style="font-size: 25px;"> <span class="fa fa-twitter"></span> Twitter</a>
+  <a href="https://groups.google.com/forum/#!forum/jarvis-nist" target="_blank" class="btn btn-block btn-social btn-google" style="font-size: 25px;"> <span class="fa fa-google"></span> Google</a>
+  <a href="https://github.com/usnistgov/jarvis" target="_blank" class="btn btn-block btn-social btn-github" style="font-size: 25px;"> <span class="fa fa-github"></span> Github</a>
+  <a href="https://www.youtube.com/channel/UClChK_t7kmVx_QMStQH_T9g" target="_blank"  class="btn btn-block btn-social btn-youtube" style="font-size: 25px;"> <span class="fa fa-youtube"></span> Youtube</a>
+</div>
+-->
+<br>
+
+
+<div>
+</div>
+<div class="row">
+</div>
+</div>
+</div>
+<div class="row">
+   <div class="col-md-5 col-md-offset-1" id="tiles">
+   </div>
+   <div class="col-md-5" id="templates">
+   </div>
+</div>
+

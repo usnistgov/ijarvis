@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "api_version": "1.1.0",
+    "query": {
+      "representation": "/info"
+    },
+    "more_data_available": false,
+    "schema": "https://schemas.optimade.org/openapi/v1.1/optimade_index.json",
+    "provider": {
+      "name": "Joint Automated Repository for Various Integrated Simulations (JARVIS)",
+      "description": "JARVIS is a repository designed to automate materials discovery using classical force-field, density functional theory, machine learning calculations and experiments.",
+      "prefix": "jarvis",
+      "homepage": "https://jarvis.nist.gov"
+    }
+  },
+  "data": [
+    {
+      "type": "links",
+      "id": "jarvisdft",
+      "attributes": {
+        "name": "https://jarvis.nist.gov/jarvisbdft",
+        "description": "Joint Automated Repository for Various Integrated Simulations Density Functional Theory",
+        "base_url": "https://jarvis.nist.gov/optimade/jarvisdft/",
+        "homepage": "https://jarvis.nist.gov/",
+        "link_type": "root"
+      }
+    },
+    {
+      "type": "links",
+      "id": "optimade",
+      "attributes": {
+        "name": "Materials Consortia",
+        "description": "List of OPTIMADE providers maintained by the Materials Consortia organisation",
+        "base_url": "https://providers.optimade.org",
+        "homepage": "https://optimade.org",
+        "link_type": "providers"
+      }
+    }
+  ]
+}

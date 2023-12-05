@@ -1,0 +1,1136 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="JARVIS (Joint Automated Repository for Various Integrated Simulations) is a repository designed to automate materials discovery using classical force-field, density functional theory, machine learning calculations and experiments.">
+    <meta name="keywords" content="energetics, elastic, constants, surface, energies, defect, formations, energies, phonon, frequencies, materials, machine, learning, automate, density, functional, theory, dft">
+    <title>JARVIS - Joint Automated Repository for Various Integrated Simulations</title>
+    <!-- Favicons-->
+    <link rel="icon" href="../static/events/jarvis.png" sizes="32x32">
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="/static/events/jarvis.png">
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="../static/events/jarvis.png">
+    <!-- For Windows Phone -->
+    <!-- CORE CSS-->
+    <link href="../static/events/materialize.css" type="text/css" rel="stylesheet">
+    <link href="../static/events/style.css" type="text/css" rel="stylesheet">
+    <!-- Custome CSS-->
+    <link href="../static/events/custom.css" type="text/css" rel="stylesheet">
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+    <link href="../static/events/perfect-scrollbar.css" type="text/css" rel="stylesheet">
+    <link href="../static/events/jquery-jvectormap.css" type="text/css" rel="stylesheet">
+    <link href="../static/events/fullcalendar.min.css" type="text/css" rel="stylesheet">
+    <link href="../static/events/flag-icon.min.css" type="text/css" rel="stylesheet">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q89M6QHG7"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-1Q89M6QHG7');
+  </script>
+
+  <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  </head>
+  <body>
+    <!-- Start Page Loading -->
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loading -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+      <!-- start header nav-->
+      <div class="navbar-fixed">
+        <nav class="navbar-color white gradient-shadow">
+          <div class="nav-wrapper">
+            <div class="header-search-wrapper hide-on-med-and-down">
+              <a href="../" class="nist-logo">
+                <img src="/static/events/nist-logo.png" alt="nist logo">
+              </a>
+            </div>
+
+            <ul class="right hide-on-med-and-down">
+              <!--
+              <li>
+                <a href="https://docs.google.com/document/d/1d6CcS-gRrXy-YzFVMZ_nABs2pcizHia7xeaihpl4PmU/edit" class="slack-logo tooltipped" data-position="bottom" data-delay="50" data-tooltip="Google-doc">
+                  <img src="https://www.ctcms.nist.gov/~knc6/images/logo/doc.png" alt="doc logo">
+                </a>
+              </li>
+
+              <li>
+                <a href="https://app.slack.com/client/TLTD765RB/CLSUBUA9J" class="slack-logo tooltipped" data-position="bottom" data-delay="50" data-tooltip="Slack">
+                  <img src="https://www.ctcms.nist.gov/~knc6/images/logo/slack-logo.png" alt="slack logo">
+                </a>
+              </li>
+
+
+              <li>
+                <a href="https://www.researchgate.net/project/JARVIS-Joint-Automated-Repository-for-Various-Integrated-Simulations" class="rgate-logo tooltipped" data-position="bottom" data-delay="50" data-tooltip="ResearchGate">
+                  <img src="https://www.ctcms.nist.gov/~knc6/images/logo/rgate-logo.png" alt="researchgate logo">
+                </a>
+              </li>
+              -->
+              <!-- <li>
+                <a href="../" class="waves-effect waves-block waves-light tooltipped" data-position="bottom" data-delay="50" data-tooltip="Documentation">
+                  <i class="material-icons help">help_outline</i>
+                </a>
+              </li>
+              <li>
+                <a href="../" class="waves-effect waves-block waves-light translation-button" data-activates="translation-dropdown">
+                  <span class="flag-icon flag-icon-us"></span>
+                </a>
+              </li> -->
+            </ul>
+            <!-- translation-button -->
+            <!-- <ul id="translation-dropdown" class="dropdown-content">
+              <li>
+                <a href="../" class="grey-text text-darken-1">
+                  <i class="flag-icon flag-icon-us"></i> English</a>
+              </li>
+              <li>
+                <a href="../" class="grey-text text-darken-1">
+                  <i class="flag-icon flag-icon-fr"></i> French</a>
+              </li>
+              <li>
+                <a href="../" class="grey-text text-darken-1">
+                  <i class="flag-icon flag-icon-cn"></i> Chinese</a>
+              </li>
+              <li>
+                <a href="../" class="grey-text text-darken-1">
+                  <i class="flag-icon flag-icon-de"></i> German</a>
+              </li>
+            </ul> -->
+            <!-- notifications-dropdown -->
+            <ul id="notifications-dropdown" class="dropdown-content">
+              <li>
+                <h6>Notifications
+                  <span class="new badge deep-orange">5</span>
+                </h6>
+              </li>
+              <li class="divider" id="notifications"></li>
+              <li>
+                <a class="grey-text text-darken-2">
+                  <span class="material-icons icon-bg-circle cyan small">add_shopping_cart</span> JARVIS-ML +400 datasets!</a>
+                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">2 hours ago</time>
+              </li>
+              <li>
+                <a class="grey-text text-darken-2">
+                  <span class="material-icons icon-bg-circle red small">stars</span> JARVIS-FF +1K users!</a>
+                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">3 days ago</time>
+              </li>
+              <li>
+                <a class="grey-text text-darken-2">
+                  <span class="material-icons icon-bg-circle teal small">settings</span> JARVIS-ML new release!</a>
+                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">4 days ago</time>
+              </li>
+              <li>
+                <a class="grey-text text-darken-2">
+                  <span class="material-icons icon-bg-circle deep-orange small">today</span> JARVIS Workshop planning begins.</a>
+                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">6 days ago</time>
+              </li>
+              <li>
+                <a class="grey-text text-darken-2">
+                  <span class="material-icons icon-bg-circle amber small">trending_up</span> JARVIS publications hit 210 citations!</a>
+                <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">1 week ago</time>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- END HEADER -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START MAIN -->
+
+    <div id="main">
+      <!-- START WRAPPER -->
+      <div class="wrapper">
+        <!-- START LEFT SIDEBAR NAV-->
+        <aside id="left-sidebar-nav" class="nav-expanded nav-lock nav-collapsible">
+          <div class="brand-sidebar">
+            <h1 class="logo-wrapper">
+              <a href="https://jarvis.nist.gov/" class="brand-logo">
+                <img src="../static/events/jarvis-logo.png" alt="materialize logo">
+              </a>
+            </h1>
+          </div>
+          <ul id="slide-out" class="side-nav fixed leftside-navigation">
+            <li class="no-padding">
+              <ul class="collapsible" data-collapsible="accordion">
+                <!-- <li class="bold">
+                  <a class="collapsible-header waves-effect waves-cyan">
+                    <i class="material-icons">description</i>
+                    <span class="nav-text">Publications</span>
+                  </a>
+                  <div class="collapsible-body">
+                    <ul>
+                      <li>
+                        <a href="../">
+                          <i class="material-icons">all_inclusive</i>
+                          <span>FF</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="../">
+                          <i class="material-icons">gesture</i>
+                          <span>DFT</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="../">
+                          <i class="material-icons">device_hub</i>
+                          <span>ML</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li> -->
+                <!-- <li class="bold">
+                  <a class="collapsible-header waves-effect waves-cyan">
+                    <i class="material-icons">dvr</i>
+                    <span class="nav-text">News</span>
+                  </a>
+                  <div class="collapsible-body">
+                    <ul>
+                      <li class="active">
+                        <a href="../">
+                          <i class="material-icons">today</i>
+                          <span> Recent</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="../">
+                          <i class="material-icons">developer_board</i>
+                          <span> Previous</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li> -->
+                <li class="bold active">
+                  <a class="collapsible-header waves-effect waves-cyan active">
+                    <i class="material-icons">group</i>
+                    <span class="nav-text">JARVIS-NIST Events</span>
+                  </a>
+                  <div class="collapsible-body">
+                    <ul>
+                    
+                     <li>
+                        <a href="../events/aims">
+                          <i class="material-icons">event_note</i>
+                          <span>AIMS</span>
+                        </a>
+                      </li>
+                      
+                     <li>
+                        <a href="../events/qmms">
+                          <i class="material-icons">event_note</i>
+                          <span>QMMS</span>
+                        </a>
+                      </li>
+ 
+                     
+ 
+                      <li>
+                        <a href="../events/school">
+                          <i class="material-icons">event_note</i>
+                          <span>JARVIS-School</span>
+                        </a>
+                      </li>
+                      <!-- 
+
+                      
+                    
+                      <li >
+                        <a href="../events/aims2019">
+                          <i class="material-icons">event_note</i>
+                          <span>AIMS 2019</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="../events/aims2018">
+                          <i class="material-icons">event_available</i>
+                          <span>AIMS 2018</span>
+                        </a>
+                      </li>
+                      -->
+
+                    </ul>
+                  </div>
+                </li>
+                <!-- <li class="bold">
+                  <a class="waves-effect waves-cyan">
+                    <i class="material-icons">local_library</i>
+                    <span class="nav-text">More</span>
+                  </a>
+                </li>
+                <li class="bold">
+                  <a href="../" class="waves-effect waves-cyan">
+                    <i class="material-icons">contact_mail</i>
+                    <span class="nav-text">Contact</span>
+                  </a>
+                </li> -->
+              </ul>
+            </li>
+          </ul>
+          <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only gradient-45deg-light-blue-cyan gradient-shadow">
+            <i class="material-icons">menu</i>
+          </a>
+        </aside>
+        <!-- END LEFT SIDEBAR NAV-->
+        <!-- //////////////////////////////////////////////////////////////////////////// -->
+        <!-- START CONTENT -->
+        <section id="content">
+          <div class="container">
+            <ul id="task-card" class="collection with-header">
+              <li class="collection-header teal">
+                <h4 class="task-card-title" id="title">Workshop: Quantum Matters in Materials Science (QMMS)</h4>
+				
+              </li>
+              <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                <p id="summary">
+<br>
+
+
+The workshop will be focused on quantum phenomena in emerging materials for next generation devices. All materials are inherently quantum in nature, but when quantum phenomena manifest at the classical scale can we hope to leverage their properties for applications. Large scale initiatives such as the Materials Genome Initiative, the National Quantum Initiative, and the CHIPS for America Act represent compelling approaches to investigate quantum materials and accelerate their development for quantum information systems (QIS), for the use in future integrated circuits, and other practical industrial applications. For these approaches and initiatives to be successful, it is essential to have good synergy between experimental and computational efforts. This workshop aims at streamlining this effort. To make the workshop as effective as possible, we plan to mainly focus on 2D and 3D inorganic superconductor, topological, magnetic, and semiconducting materials, but we are not limited to those systems.
+
+
+This workshop aims at accelerating this effort. To make the workshop as effective as possible we plan to mainly focus on 2D and 3D inorganic superconductor, topological, magnetic and electronic materials but are not limited by it.
+
+
+<br>
+<br>
+
+Some of the key topics to be addressed by both theory and experiments are: 
+<br>
+
+1) discovery and characterization of new superconductors/topological, magnetic and semiconducting materials,
+<br>
+
+2) optimization of known quantum materials,
+<br>
+
+3) investigation of defect induced behavior and transitions,
+<br>
+
+4) Electronics, spintronics, and quantum memory applications,
+<br>
+
+5) challenges in applying QIS technologies at industrial scale,
+<br>
+
+6) successes and challenges in integrating next-generation materials into integrated circuits (microchips),
+<br>
+
+7) high fidelity many-body computational methods to treat quantum materials,
+<br>
+
+8) applications for quantum computing and quantum simulations. 
+<br>
+
+
+
+          <!--
+          <br>
+          <p> Please register only if you plan to attend the workshop. The recording will be posted on the event page after the event. Registration is not required to view the recording. Please only register if you intend to attend the live event. </p>
+          <p> <b>Virtual poster session</b>: If you plan to present a virtual poster during the workshop, please send an email to <a href="mailto:kamal.choudhary@nist.gov">kamal.choudhary@nist.gov</a> with a title and an abstract with subject "QMMS virtual poster". </p>
+          <p> <b>Please note: the workshop schedule will be based on the Eastern Time Zone.</b> </p>
+          <p><b>Please note: video links will be sent to registered particpants only. If you receieved it, please do not share with others.</b></p>
+        
+          <br>
+              --> 
+
+             </li>
+              
+              
+            </ul>
+
+          </div>
+
+
+
+          <!-- <div class="container">
+            <li class="divider"></li>
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <h5 class="breadcrumbs-title" style=" text-align: center;">Venue information</h5>
+                </div>
+                <div class="row" id="venue">
+                  <div class="col s12 m4 l4">
+                    <ul id="task-card" class="collection with-header">
+                      <li class="collection-header teal">
+                        <label class="task-card-title">AIMS Registration</label>
+                        <span class="task-card-date"><a href="https://appam.certain.com/profile/44214">Register here</a></span>
+                      </li>
+                      <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                        <label>Register for workshop before July 31, 2018.
+                        </label>
+                        <label>NIST employees/associates do not need to register.
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col s12 m4 l4">
+                    <ul id="task-card" class="collection with-header">
+                      <li class="collection-header teal">
+                        <label class="task-card-title">Requirements</label>
+                        <span class="task-card-date"><a href="https://www.nist.gov/about-nist/visit/getting-nist-gaithersburg">Access here</a></span>
+                      </li>
+                      <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                        <label>NIST visitor information.
+                        </label>
+                        <label>Non NIST employees/associates must comply.
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col s12 m4 l4">
+                    <ul id="task-card" class="collection with-header">
+                      <li class="collection-header teal">
+                        <label class="task-card-title">Accomodation</label>
+                        <span class="task-card-date"><a href="https://www.google.com/maps/search/hotels+near+National+Institute+of+Standards+and+Technology/@39.142127,-77.2281825,14.29z/data=!4m7!2m6!5m4!5m3!1s2019-02-15!2i3!3i1!6e3">View here</a></span>
+                      </li>
+                      <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                        <label>List of Hotels nearby NIST.
+                        </label>
+                        <label>A shuttle is available from/to Shady Grove Metro Station.
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="container">
+            <li class="divider"></li>
+              <div class="row" id="topics">
+                <div class="col s12 m12 l12">
+                  <h5 class="breadcrumbs-title" style=" text-align: center;">Workshop topics</h5>
+                  <ul class="collapsible popout" data-collapsible="accordion">
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">bookmark_border</i>Application of classification/regression techniques</div>
+                      <div class="collapsible-body"><span>Short description.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">bookmark_border</i>Application of physics-based constraints</div>
+                      <div class="collapsible-body"><span>Short description.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">bookmark_border</i>Selection and importance of features/descriptors</div>
+                      <div class="collapsible-body"><span>Short description.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">bookmark_border</i>Comparison metrics of AI techniques</div>
+                      <div class="collapsible-body"><span>Short description.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">bookmark_border</i>Challenges applying AI to materials</div>
+                      <div class="collapsible-body"><span>Short description.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">bookmark_border</i>Dataset and tools for employing AI</div>
+                      <div class="collapsible-body"><span>Short description.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">bookmark_border</i>Integrating experiments with AI techniques</div>
+                      <div class="collapsible-body"><span>Short description.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">bookmark_border</i>Using AI to develop classical force-fields</div>
+                      <div class="collapsible-body"><span>Short description.</span></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+          </div> -->
+
+            <!-- <div class="container">
+              <li class="divider"></li>
+                <div class="row">
+                  <div class="col s12 m12 l12">
+                    <h5 class="breadcrumbs-title">Workshop Topics</h5>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 m4 l4">
+                    <ul id="task-card" class="collection with-header">
+                      <li class="collection-header teal">
+                        <label class="task-card-title">Application</label>
+                        <span class="task-card-date">Classification/regression techniques</span>
+                      </li>
+                      <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                        <label>Short description. (One sentence at best).
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col s12 m4 l4">
+                    <ul id="task-card" class="collection with-header">
+                      <li class="collection-header teal">
+                        <label class="task-card-title">Application</label>
+                        <span class="task-card-date">Physics-based constraints</span>
+                      </li>
+                      <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                        <label>Short description. (One sentence at best).
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col s12 m4 l4">
+                    <ul id="task-card" class="collection with-header">
+                      <li class="collection-header teal">
+                        <label class="task-card-title">Category</label>
+                        <span class="task-card-date">Selection and importance of features/descriptors</span>
+                      </li>
+                      <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                        <label>Short description. (One sentence at best).
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col s12 m4 l4">
+                    <ul id="task-card" class="collection with-header">
+                      <li class="collection-header teal">
+                        <label class="task-card-title">Review</label>
+                        <span class="task-card-date">Comparison metrics of AI techniques</span>
+                      </li>
+                      <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                        <label>Short description. (One sentence at best).
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col s12 m4 l4">
+                    <ul id="task-card" class="collection with-header">
+                      <li class="collection-header teal">
+                        <label class="task-card-title">Application</label>
+                        <span class="task-card-date">Challenges applying AI to materials</span>
+                      </li>
+                      <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                        <label>Short description. (One sentence at best).
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col s12 m4 l4">
+                    <ul id="task-card" class="collection with-header">
+                      <li class="collection-header teal">
+                        <label class="task-card-title">State of the art</label>
+                        <span class="task-card-date">Dataset and tools for employing AI</span>
+                      </li>
+                      <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                        <label>Short description. (One sentence at best).
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col s12 m4 l4">
+                    <ul id="task-card" class="collection with-header">
+                      <li class="collection-header teal">
+                        <label class="task-card-title">Application</label>
+                        <span class="task-card-date">Integrating experiments with AI techniques</span>
+                      </li>
+                      <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                        <label>Short description. (One sentence at best).
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col s12 m4 l4">
+                    <ul id="task-card" class="collection with-header">
+                      <li class="collection-header teal">
+                        <label class="task-card-title">Application</label>
+                        <span class="task-card-date">Using AI to develop classical force-fields</span>
+                      </li>
+                      <li class="collection-item dismissable" style="-webkit-user-drag: none;">
+                        <label>Short description. (One sentence at best).
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            </div> -->
+
+          <!-- <div class="container">
+            <li class="divider"></li>
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <h5 class="breadcrumbs-title" style=" text-align: center;">Featured speakers</h5>
+                </div>
+              </div>
+          </div> -->
+
+          <!-- <div id='card-widgets'>
+            <div class='row' id="speakers">
+              <div class="col s12 m4 l4">
+                <div id="profile-card" class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="/static/events/3.png\" alt="user bg">
+                  </div>
+                  <div class="card-content">
+                    <img src="../images/avatar/kamal.jpg" alt="" class="circle responsive-img activator card-profile-image white lighten-1 padding-2">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                      <i class="material-icons">visibility</i>
+                    </a>
+                    <span class="card-title activator grey-text text-darken-4">Kamal Choudhary</span>
+                    <p>
+                      <i class="material-icons">perm_identity</i> Role</p>
+                    <p>
+                      <i class="material-icons">email</i> kamal.choudhary@nist.gov</p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Kamal Choudhary
+                      <i class="material-icons right">close</i>
+                    </span>
+                    <p>Dr. Choudhary is ...</p>
+                    <p>
+                      <i class="material-icons">perm_identity</i> Material Scientist</p>
+                    <p>
+                      <i class="material-icons">business</i> NIST</p>
+                    <p>
+                      <i class="material-icons">location_on</i> Gaithersburg, Maryland</p>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m4 l4">
+                <div id="profile-card" class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="/static/events/3.png\" alt="user bg">
+                  </div>
+                  <div class="card-content">
+                    <img src="../images/avatar/francesca.jpg" alt="" class="circle responsive-img activator card-profile-image white lighten-1 padding-2">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                      <i class="material-icons">visibility</i>
+                    </a>
+                    <span class="card-title activator grey-text text-darken-4">Francesca Tavazza</span>
+                    <p>
+                      <i class="material-icons">perm_identity</i> Role</p>
+                    <p>
+                      <i class="material-icons">email</i> francesca.tavazza@nist.gov</p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Francesca Tavazza
+                      <i class="material-icons right">close</i>
+                    </span>
+                    <p>Dr. Tavazza is ...</p>
+                    <p>
+                      <i class="material-icons">perm_identity</i> Material Scientist</p>
+                    <p>
+                      <i class="material-icons">business</i> NIST</p>
+                    <p>
+                      <i class="material-icons">location_on</i> Gaithersburg, Maryland</p>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="col s12 m4 l4">
+                <div id="profile-card" class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="/static/events/3.png\" alt="user bg">
+                  </div>
+                  <div class="card-content">
+                    <img src="../images/avatar/davydov.JPG" alt="" class="circle responsive-img activator card-profile-image white lighten-1 padding-2">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                      <i class="material-icons">visibility</i>
+                    </a>
+                    <span class="card-title activator grey-text text-darken-4">Albert Davydov</span>
+                    <p>
+                      <i class="material-icons">perm_identity</i> NIST, Gaithersburg</p>
+                    <p>
+                      <i class="material-icons">email</i> albert.davydov@nist.gov</p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Albert Davydov
+                      <i class="material-icons right">close</i>
+                    </span>
+                    <p>
+                      <i class="material-icons">perm_identity</i> Material Scientist</p>
+                    <p>
+                      <i class="material-icons">business</i> NIST</p>
+                    <p>
+                      <i class="material-icons">location_on</i> Gaithersburg, Maryland</p>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+              <div class="col s12 m4 l4">
+                <div id="profile-card" class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="/static/events/3.png\" alt="user bg">
+                  </div>
+                  <div class="card-content">
+                    <img src="../images/avatar/carrie.jpg" alt="" class="circle responsive-img activator card-profile-image white lighten-1 padding-2">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                      <i class="material-icons">visibility</i>
+                    </a>
+                    <span class="card-title activator grey-text text-darken-4">Carelyn Campbell</span>
+                    <p>
+                      <i class="material-icons">perm_identity</i> Role</p>
+                    <p>
+                      <i class="material-icons">email</i> carelyn.campbell@nist.gov</p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Carelyn Campbell
+                      <i class="material-icons right">close</i>
+                    </span>
+                    <p>Dr. Campbell is ...</p>
+                    <p>
+                      <i class="material-icons">perm_identity</i> Material Scientist</p>
+                    <p>
+                      <i class="material-icons">business</i> NIST</p>
+                    <p>
+                      <i class="material-icons">location_on</i> Gaithersburg, Maryland</p>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="container">
+            <li class="divider"></li>
+            <div class="row">
+              <div class="col s12 m12 l12">
+                <h5 class="breadcrumbs-title" style=" text-align: center;">Agenda</h5>
+              </div>
+            </div>
+            <div id="full-calendar">
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <div id='calendar'></div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+		  
+          <div class="container">
+            <li class="divider"></li>
+              <div class="row" id="topics">
+                <div class="col s12 m12 l12">
+                  <h5 class="breadcrumbs-title" style=" text-align: center;">QMMS2024, February 21-22, 2024 (In person)</h5>
+          <div class="center-align">
+            <a class="waves-effect waves-light btn" <a href= https://www.nist.gov/news-events/events/2024/02/quantum-matters-materials-science-workshop >Agenda</a>
+          </div>
+                </div>
+              </div>
+          </div>
+           <br><br>
+
+
+          <div class="container">
+            <li class="divider"></li>
+              <div class="row" id="topics">
+                <div class="col s12 m12 l12">
+                  <h5 class="breadcrumbs-title" style=" text-align: center;">QMMS2023, January 31-February 1, 2023 (Virtual)</h5>
+          <div class="center-align">
+            <a class="waves-effect waves-light btn" <a href= https://www.nist.gov/news-events/events/2023/01/quantum-matters-materials-science-qmms-workshop >Recorded videos</a>
+          </div>
+                </div>
+              </div>
+          </div>
+           <br><br>
+
+          <div class="container">
+            <li class="divider"></li>
+              <div class="row" id="topics">
+                <div class="col s12 m12 l12">
+                  <h5 class="breadcrumbs-title" style=" text-align: center;">QMMS2020, October 15-16, 2020 (Virtual)</h5>
+          <div class="center-align">
+            <a class="waves-effect waves-light btn" <a href= https://www.ctcms.nist.gov/~knc6/qmms/QMMS-tentative-agenda.pdf >Agenda</a>
+            <a class="waves-effect waves-light btn" <a href= https://www.nist.gov/video-gallery/search?k=qmms >Recorded videos</a>
+          </div>
+                </div>
+              </div>
+          </div>
+           <br><br>
+
+
+
+		  
+		  
+ <div class="container">
+            <li class="divider"></li>
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <h5 class="breadcrumbs-title" style=" text-align: center;">Commitee members</h5>
+                </div>
+              </div>
+          </div>
+
+          <div id='card-widgets'>
+            <div class='row' id="commitee">
+              <div class="col s12 m4 l4">
+                <div id="profile-card" class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../static/events/3.png" alt="user bg">
+                  </div>
+                  <div class="card-content">
+                    <img src="../static/events/kamal.jpg" alt="" class="circle responsive-img activator card-profile-image white lighten-1 padding-2">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                      <i class="material-icons">visibility</i>
+                    </a>
+                    <span class="card-title activator grey-text text-darken-4">Kamal Choudhary</span>
+                    <p>
+                      <i class="material-icons">perm_identity</i> NIST, Gaithersburg</p>
+                    <p>
+                      <i class="material-icons">email</i> kamal.choudhary@nist.gov</p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Kamal Choudhary
+                      <i class="material-icons right">close</i>
+                    </span>
+                  
+                    <p>
+                      <i class="material-icons">perm_identity</i> Material Scientist</p>
+                    <p>
+                      <i class="material-icons">business</i> NIST</p>
+                    <p>
+                      <i class="material-icons">location_on</i> Gaithersburg, Maryland</p>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+			  
+			  
+              <div class="col s12 m4 l4">
+                <div id="profile-card" class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../static/events/3.png" alt="user bg">
+                  </div>
+                  <div class="card-content">
+                    <img src="https://www.ctcms.nist.gov/~knc6/images/avatar/francesca.jpg" alt="" class="circle responsive-img activator card-profile-image white lighten-1 padding-2">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                      <i class="material-icons">visibility</i>
+                    </a>
+                    <span class="card-title activator grey-text text-darken-4">Francesca Tavazza</span>
+                    <p>
+                      <i class="material-icons">perm_identity</i>NIST, Gaithersburg</p>
+                    <p>
+                      <i class="material-icons">email</i> francesca.tavazza@nist.gov</p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Francesca Tavazza
+                      <i class="material-icons right">close</i>
+                    </span>
+                    
+                    <p>
+                      <i class="material-icons">perm_identity</i> Material Scientist</p>
+                    <p>
+                      <i class="material-icons">business</i> NIST</p>
+                    <p>
+                      <i class="material-icons">location_on</i> Gaithersburg, Maryland</p>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="col s12 m4 l4">
+                <div id="profile-card" class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../static/events/3.png" alt="user bg">
+                  </div>
+                  <div class="card-content">
+                    <img src="https://d27zlp3juxjn3o.cloudfront.net/wp-content/uploads/2018/02/Ramya-Gurunathan-265x265.png" alt="" class="circle responsive-img activator card-profile-image white lighten-1 padding-2">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                      <i class="material-icons">visibility</i>
+                    </a>
+                    <span class="card-title activator grey-text text-darken-4">Ramya Gurunathan</span>
+                    <p>
+                      <i class="material-icons">perm_identity</i>NIST, Gaithersburg</p>
+                    <p>
+                      <i class="material-icons">email</i> ramya.gurunathan@nist.gov</p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Ramya Gurunathan
+                      <i class="material-icons right">close</i>
+                    </span>
+                    
+                    <p>
+                      <i class="material-icons">perm_identity</i> Material Scientist</p>
+                    <p>
+                      <i class="material-icons">business</i> NIST</p>
+                    <p>
+                      <i class="material-icons">location_on</i> Gaithersburg, Maryland</p>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="col s12 m4 l4">
+                <div id="profile-card" class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../static/events/3.png" alt="user bg">
+                  </div>
+                  <div class="card-content">
+                    <img src="../static/events/kevin.png" alt="" class="circle responsive-img activator card-profile-image white lighten-1 padding-2">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                      <i class="material-icons">visibility</i>
+                    </a>
+                    <span class="card-title activator grey-text text-darken-4">Kevin Garrity</span>
+                    <p>
+                      <i class="material-icons">perm_identity</i>NIST, Gaithersburg</p>
+                    <p>
+                      <i class="material-icons">email</i> kevin.garrity@nist.gov</p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Kevin Garrity
+                      <i class="material-icons right">close</i>
+                    </span>
+                    
+                    <p>
+                      <i class="material-icons">perm_identity</i> Material Scientist</p>
+                    <p>
+                      <i class="material-icons">business</i> NIST</p>
+                    <p>
+                      <i class="material-icons">location_on</i> Gaithersburg, Maryland</p>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+              <div class="col s12 m4 l4">
+                <div id="profile-card" class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../static/events/3.png" alt="user bg">
+                  </div>
+                  <div class="card-content">
+                    <img src="data:image/jpeg;base64,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" alt="" class="circle responsive-img activator card-profile-image white lighten-1 padding-2">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                      <i class="material-icons">visibility</i>
+                    </a>
+                    <span class="card-title activator grey-text text-darken-4">Daniel Wines</span>
+                    <p>
+                      <i class="material-icons">perm_identity</i>NIST, Gaithersburg</p>
+                    <p>
+                      <i class="material-icons">email</i> daniel.wines@nist.gov</p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Daniel Wines
+                      <i class="material-icons right">close</i>
+                    </span>
+                    
+                    <p>
+                      <i class="material-icons">perm_identity</i> Material Scientist</p>
+                    <p>
+                      <i class="material-icons">business</i> NIST</p>
+                    <p>
+                      <i class="material-icons">location_on</i> Gaithersburg, Maryland</p>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="col s12 m4 l4">
+                <div id="profile-card" class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../static/events/3.png" alt="user bg">
+                  </div>
+                  <div class="card-content">
+                    <img src="data:image/jpeg;base64,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" alt="" class="circle responsive-img activator card-profile-image white lighten-1 padding-2">
+                    <a class="btn-floating activator btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                      <i class="material-icons">visibility</i>
+                    </a>
+                    <span class="card-title activator grey-text text-darken-4">Brian DeCost</span>
+                    <p>
+                      <i class="material-icons">perm_identity</i>NIST, Gaithersburg</p>
+                    <p>
+                      <i class="material-icons">email</i> brian.decost@nist.gov</p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Brian DeCost
+                      <i class="material-icons right">close</i>
+                    </span>
+                    
+                    <p>
+                      <i class="material-icons">perm_identity</i> Material Scientist</p>
+                    <p>
+                      <i class="material-icons">business</i> NIST</p>
+                    <p>
+                      <i class="material-icons">location_on</i> Gaithersburg, Maryland</p>
+                    <p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+              </div>
+
+
+
+
+
+
+
+          </div>
+
+        </section>
+	  
+		  
+              <!--   <br><p>&nbsp  Co-organizers: Albert Davydov, Sugata Chowdhury, Kevin Garrity </p><br>    -->
+
+
+        <!-- END CONTENT -->
+        <!-- Floating Action Button -->
+        <div class="fixed-action-btn " style="bottom: 50px; right: 19px;">
+          <a class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow">
+            <i class="material-icons">dashboard</i>
+          </a>
+          <ul>
+            <li>
+              <a href="https://www.ctcms.nist.gov/~knc6/JARVIS.html" class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow tooltipped" data-position="left" data-delay="50" data-tooltip="Home">
+                <i class="material-icons">home</i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.ctcms.nist.gov/~knc6/periodic.html" class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow tooltipped" data-position="left" data-delay="50" data-tooltip="JARVIS-FF">
+                <i class="material-icons">all_inclusive</i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.ctcms.nist.gov/~knc6/JVASP.html" class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow tooltipped" data-position="left" data-delay="50" data-tooltip="JARVIS-DFT">
+                <i class="material-icons">gesture</i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.ctcms.nist.gov/jarvisml/" class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow tooltipped" data-position="left" data-delay="50" data-tooltip="JARVIS-ML">
+                <i class="material-icons">device_hub</i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.ctcms.nist.gov/~knc6/documentation.html" class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow tooltipped" data-position="left" data-delay="50" data-tooltip="Documentation">
+                <i class="material-icons">help_outline</i>
+              </a>
+            </li>
+			<li>
+              <a href="https://github.com/usnistgov/jarvis" class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow tooltipped" data-position="left" data-delay="50" data-tooltip="Github">
+                <i class="material-icons">help_outline</i>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:kamal.choudhary@nist.gov" class="btn-floating btn-large gradient-45deg-light-blue-cyan gradient-shadow tooltipped" data-position="left" data-delay="50" data-tooltip="Contact">
+                <i class="material-icons">contact_mail</i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Floating Action Button -->
+        </div>
+        <!-- END WRAPPER -->
+      </div>
+      
+
+
+
+
+      <!-- END MAIN -->
+      <!-- //////////////////////////////////////////////////////////////////////////// -->
+      <!-- START FOOTER -->
+      <footer class="page-footer lightblue">
+        <div class="footer-copyright">
+          <div class="container">
+            <span><a class="grey-text text-lighten-4" href="https://www.nist.gov/mgi" target="_blank">MGI Project •
+              <script type="text/javascript">
+                document.write(new Date().getFullYear());
+              </script>
+            </a>
+            <span class="right hide-on-small-only"> Project Lead <a class="grey-text text-lighten-4" href="https://www.nist.gov/people/kamal-choudhary">Dr. Kamal Choudhary</a></span>
+          </div>
+        </div>
+        <img src="http://hitwebcounter.com/counter/counter.php?page=6878619&style=0007&nbdigits=6&type=page&initCount=0" title="www.hitwebcounter.com" Alt="www.hitwebcounter.com"   border="0" >
+
+      </footer>
+      
+      <!-- END FOOTER -->
+      <!-- ================================================
+    Scripts
+    ================================================ -->
+      <!-- jQuery Library -->
+      <script type="text/javascript" src="../static/events/jquery-3.2.1.min.js"></script>
+      <!--materialize js-->
+      <script type="text/javascript" src="../static/events/materialize.min.js"></script>
+      <!--prism-->
+      <script type="text/javascript" src="../static/events/prism.js"></script>
+      <!--scrollbar-->
+      <script type="text/javascript" src="../static/events/perfect-scrollbar.min.js"></script>
+      <!-- chartjs -->
+      <script type="text/javascript" src="../static/events/chart.min.js"></script>
+
+      <script type="text/javascript" src="../static/events/jquery-ui.custom.min.js"></script>
+      <script type="text/javascript" src="../static/events/moment.min.js"></script>
+      <script type="text/javascript" src="../static/events/fullcalendar.min.js"></script>
+      <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+      <script type="text/javascript" src="../static/events/fullcalendar-script.js"></script>
+      <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+      <script type="text/javascript" src="../static/events/plugins.js"></script>
+      <!--custom-script.js - Add your own theme custom JS-->
+      <script type="text/javascript" src="../static/events/custom-script.js"></script>
+      <!-- <script type="text/javascript" src="../js/scripts/dashboard-ecommerce.js"></script> -->
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('.tooltipped').tooltip({delay: 50});
+          $('.collapsible').collapsible();
+        });
+      </script>
+
+<script language="JavaScript" id="_fed_an_js_tag" src="https://www.ctcms.nist.gov/js/federated-analytics.all.min.js?agency=NIST&subagency=ctcms&pua=UA-37115410-17&yt=true"></script>
+
+  </body>
+  
+</html>
+

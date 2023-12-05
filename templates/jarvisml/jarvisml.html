@@ -1,0 +1,488 @@
+
+
+
+
+<!DOCTYPE html>
+<!-- Developer: Kamal Choudhary, Noah Smith NIST
+The code may not be copied/reused without permission-->
+<meta charset="utf-8">
+<title>JARVIS-ML</title>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q89M6QHG7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Q89M6QHG7');
+</script>
+</head>
+
+{% load static %}
+<link rel="stylesheet"  href="https://www.ctcms.nist.gov/~knc6/speech-input.css">
+<link rel="stylesheet" type="text/css" href="https://www.ctcms.nist.gov/~knc6/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+ <style>
+.centered-wrapper {
+    position: relative;
+    text-align: center;
+}
+.centered-wrapper:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 0; height: 100%;
+    vertical-align: middle;
+}
+.centered-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.box1 {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
+    margin: 0px;
+    width: 366px;
+    height: 340px;
+}
+
+
+.si-wrapper input {
+  font-size: 1.4em;
+  padding: 0.1em;
+  width: 100%;
+}
+.si-mic {
+  align: right;
+}
+.centered-content {
+	    display: inline-block;
+		        vertical-align: middle;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:   #00bfff;
+}
+li {
+    float: left;
+}
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+li a:hover {
+    background-color:#000;
+}
+
+</style>
+
+
+<ul>
+        <li ><a href="https://jarvis.nist.gov">HOME</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisdft/">DFT</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisff/">FF</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisml/">ML</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisus/">US</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarviswtb/">WTB</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisstm/">STM</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvish/">Hetero</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvissolar/">Solar</a></li>
+        <li ><a href="https://jarvis-materials-design.github.io/dbdocs/tutorials/">Tutorials</a></li>
+        <li ><a href="https://github.com/JARVIS-Materials-Design/jarvis-tools-notebooks">Notebooks</a></li>
+ </ul>
+
+  
+
+ <br>
+
+        <body class="centered-wrapper">
+        <script>
+          if(self == top) {
+            document.documentElement.style.display = 'block';
+          } else {
+             top.location = self.location;
+          }
+        </script>
+
+                <div class="centered-content">
+                        <a href="https://jarvis.nist.gov/" target="_blank"><image align="middle" id="DOS" src="https://www.ctcms.nist.gov/~knc6/jlogo.png"></image></a><font size="30" color="red">ML</font><br><br>
+		<h2> First app </h2>
+		<h4> This app predicts property of an input material given in POSCAR format using JARVIS-ML model for several properties. </h4>
+                <form  method="post">
+                        <button class="btn-success" type="submit">Submit</button><br>
+                {% csrf_token %}
+                {{ form }}
+
+                <textarea style="font-size: 12pt " class="box1" id="result" name="result" rows="15" cols="50">{{result}} </textarea>
+                </form>
+                <br><br>
+
+
+                </div>
+        </body>
+
+
+
+
+
+		<h2> Second app </h2>
+		<h4> This app shows ML-predicted properties of all materials. We converted around 1.5 million materials into CFID descriptors and predicted the properties using JARVIS-ML models. </h4>
+<div class="container default-background card-2" >
+
+
+
+
+
+
+
+   
+<br>
+
+<script>
+  if(self == top) {
+    document.documentElement.style.display = 'block';
+  } else {
+     top.location = self.location;
+  }
+</script>
+
+
+
+
+
+   <!--Main StyleSheet -->
+   <div class="si-wrapper" style="display: flex; justify-content: center;">
+	<input type="text" size="30"  id="mytext" class="si-input" placeholder="Tell me about silicon-germanium / Si-Ge- / click Si, Ge, then hit enter or click Search"; >
+
+	<button class="si-btn" >
+		speech input
+		<span class="si-mic" ></span>
+		<span class="si-holder" ></span>
+	</button>
+
+</div>
+
+
+<div class='container'>
+
+<!--Inspired from http://nccr-marvel.ch/ -->
+
+
+
+<div class="col-sm-6 col-md-3">
+
+       <div class="input-group">
+          <span class="input-group-addon"> JARVIS-ID </span>
+          <input class="form-control input-default"   id="jidbox" name="jidbox" type="text" placeholder="JCFID-1" value="" >
+       </div>
+</div>
+
+
+
+
+
+
+<div class="col-sm-2 col-lg-2 ">
+       <!--  <button type="submit" onclick="multiple_filtered_values()" class="btn btn-block btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> AdvSearch</button> --> 
+      <button type="submit" onclick="advsearch()"  class="btn btn-block btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+     
+
+</div>
+
+<div class="col-sm-2 col-lg-2 ">
+        <!--  <button type="submit" onclick="multiple_filtered_values()" class="btn btn-block btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> AdvSearch</button> --> 
+     
+       <button onclick="location.reload();" class="btn btn-block btn-primary"><span class="glyphicon " aria-hidden="true"></span> Refresh Page</button>
+ 
+ </div>
+
+
+
+    </div>
+
+
+
+
+
+
+    </div>
+<font size="4" id="pText"></font>
+        <div class="container" id="container">
+        <div id="panelOne">
+		    <div class="box live_element" id="H" style="background-color: #D9FFFF;" onclick="add(event)"> H</div> 
+            <div class="box live_element" id="Li" style="background-color: #CC80FF;" onclick="add(event)"> Li</div> 
+            <div class="box live_element" id="Na" style="background-color: #CC80FF;" onclick="add(event)"> Na</div> 
+            <div class="box live_element" id="K" style="background-color: #CC80FF;" onclick="add(event)"> K</div> 
+            <div class="box live_element" id="Rb" style="background-color: #CC80FF;" onclick="add(event)"> Rb</div>  
+            <div class="box live_element" id="Cs" style="background-color: #CC80FF;" onclick="add(event)"> Cs</div>  
+            <div class="box live_element" id="Fr" style="background-color: #CC80FF;" onclick="add(event)"> Fr</div>  
+        </div>
+        <div id="panelTwo">
+            <div class="box live_element" id="Be" style="background-color: #B3E3F5;" onclick="add(event)"> Be</div>  
+            <div class="box live_element" id="Mg" style="background-color: #B3E3F5;" onclick="add(event)"> Mg</div>  
+            <div class="box live_element" id="Ca" style="background-color: #B3E3F5;" onclick="add(event)"> Ca</div>  
+            <div class="box live_element" id="Sr" style="background-color: #B3E3F5;" onclick="add(event)"> Sr</div>  
+            <div class="box live_element" id="Ba" style="background-color: #B3E3F5;" onclick="add(event)"> Ba</div>  
+            <div class="box live_element" id="Ra" style="background-color: #B3E3F5;" onclick="add(event)"> Ra</div>  
+        </div>
+        <div id="panelThree">
+            <div class="box live_element" id="Sc" style="background-color: #0099FF;" onclick="add(event)"> Sc</div>  
+            <div class="box live_element" id="Y" style="background-color: #0099FF;" onclick="add(event)"> Y</div>  
+            <div class="box" id="xxx" style="background-color:#F8C471 ;"><a href="#"> * </a></div> 
+            <div class="box" id="xxx" style="background-color:#7F8C8D ;"><a href="#"> * </a></div> 
+        </div>
+        <div id="panelThree">
+            <div class="box live_element" id="Ti" style="background-color: #0099FF;" onclick="add(event)"> Ti</div> 
+            <div class="box live_element" id="Zr" style="background-color: #0099FF;" onclick="add(event)"> Zr</div>  
+            <div class="box live_element" id="Hf" style="background-color: #0099FF;" onclick="add(event)"> Hf</div>  
+            <div class="box live_element" id="Rf" style="background-color: #0099FF;" onclick="add(event)"> Rf</div>  
+        </div>
+        <div id="panelThree">
+            <div class="box live_element" id="V" style="background-color: #0099FF;" onclick="add(event)"> V</div>  
+            <div class="box live_element" id="Nb" style="background-color: #0099FF;" onclick="add(event)"> Nb</div>  
+            <div class="box live_element" id="Ta" style="background-color: #0099FF;" onclick="add(event)"> Ta</div>  
+            <div class="box live_element" id="Db" style="background-color: #0099FF;" onclick="add(event)"> Db</div>  
+        </div>
+        <div id="panelThree">
+		    <div class="box live_element" id="Cr" style="background-color: #0099FF;" onclick="add(event)"> Cr</div> 
+           
+            <div class="box live_element" id="Mo" style="background-color: #0099FF;" onclick="add(event)"> Mo</div> 
+		    <div class="box live_element" id="W" style="background-color: #0099FF;" onclick="add(event)"> W</div> 
+		
+			<div class="box live_element" id="Sg" style="background-color: #0099FF;" onclick="add(event)"> Sg</div> 
+			
+           
+        
+        </div>
+        <div id="panelThree">
+            <div class="box live_element" id="Mn" style="background-color: #0099FF;" onclick="add(event)"> Mn</div>  
+            <div class="box live_element" id="Tc" style="background-color: #0099FF;" onclick="add(event)"> Tc</div>  
+            <div class="box live_element" id="Re" style="background-color: #0099FF;" onclick="add(event)"> Re</div>  
+            <div class="box live_element" id="Bh" style="background-color: #0099FF;" onclick="add(event)"> Bh</div>  
+        </div>
+        <div id="panelThree">
+            <div class="box live_element" id="Fe" style="background-color: #0099FF;" onclick="add(event)"> Fe</div>  
+            <div class="box live_element" id="Ru" style="background-color: #0099FF;" onclick="add(event)"> Ru</div>  
+            <div class="box live_element" id="Os" style="background-color: #0099FF;" onclick="add(event)"> Os</div>  
+            <div class="box live_element" id="Hs" style="background-color: #0099FF;" onclick="add(event)"> Hs</div>  
+        </div>
+        <div id="panelThree">
+            <div class="box live_element" id="Co" style="background-color: #0099FF;" onclick="add(event)"> Co</div>  
+            <div class="box live_element" id="Rh" style="background-color: #0099FF;" onclick="add(event)"> Rh</div>  
+            <div class="box live_element" id="Ir" style="background-color: #0099FF;" onclick="add(event)"> Ir</div>  
+            <div class="box live_element" id="Mt" style="background-color: #0099FF;" onclick="add(event)"> Mt</div>  
+        </div>
+        <div id="panelThree">
+            <div class="box live_element " id="Ni" style="background-color: #0099FF;" style="background-color: #FF850A;" onclick="add(event)"> Ni</div>  
+            <div class="box live_element" id="Pd" style="background-color: #0099FF;" onclick="add(event)"> Pd</div>  
+            <div class="box live_element" id="Pt" style="background-color: #0099FF;" onclick="add(event)"> Pt</div>  
+            <div class="box live_element" id="Ds" style="background-color: #0099FF;" onclick="add(event)"> Ds</div>  
+        </div>
+        <div id="panelThree">
+            <div class="box live_element" id="Cu" style="background-color: #0099FF;" onclick="add(event)"> Cu</div>  
+            <div class="box live_element" id="Ag" style="background-color: #0099FF;" onclick="add(event)"> Ag</div>  
+            <div class="box live_element" id="Au" style="background-color: #0099FF;" onclick="add(event)"> Au</div>  
+            <div class="box live_element" id="Rg" style="background-color: #0099FF;" onclick="add(event)"> Rg</div>  
+        </div>
+        <div id="panelThree">
+            <div class="box live_element" id="Zn" style="background-color: #0099FF;" onclick="add(event)"> Zn</div>  
+            <div class="box live_element" id="Cd" style="background-color: #0099FF;" onclick="add(event)"> Cd</div>  
+            <div class="box live_element" id="Hg" style="background-color: #0099FF;" onclick="add(event)"> Hg</div>  
+            <div class="box live_element" id="Cn" style="background-color: #0099FF;" onclick="add(event)"> Cn</div>  
+        </div>
+        <div id="panelTwo">
+            <div class="box live_element" id="B" style="background-color: #009966  ;" onclick="add(event)"> B</div>  
+            <div class="box live_element" id="Al" style="background-color: #33FFCC  ;" onclick="add(event)"> Al</div>  
+            <div class="box live_element" id="Ga" style="background-color: #33FFCC  ;" onclick="add(event)"> Ga</div> 
+            <div class="box live_element" id="In" style="background-color: #33FFCC  ;" onclick="add(event)"> In</div>  
+            <div class="box live_element" id="Tl" style="background-color: #33FFCC  ;" onclick="add(event)"> Tl</div>  
+            <div class="box live_element" id="Uut" style="background-color: #33FFCC  ;" onclick="add(event)"> Uut</div>  
+        </div>
+        <div id="panelTwo">
+            <div class="box live_element" id="C" style="background-color: #99FF66 ;" onclick="add(event)"> C</div>  
+            <div class="box live_element" id="Si" style="background-color: #009966  ;" onclick="add(event)"> Si</div>  
+            <div class="box live_element" id="Ge" style="background-color: #009966  ;" onclick="add(event)"> Ge</div>  
+            <div class="box live_element" id="Sn" style="background-color: #33FFCC  ;" onclick="add(event)"> Sn</div> 
+            <div class="box live_element" id="Pb" style="background-color: #33FFCC  ;" onclick="add(event)"> Pb</div>  
+            <div class="box live_element" id="Uuq" style="background-color: #33FFCC;"onclick="add(event)"> Uuq</div>   
+        </div>
+        <div id="panelTwo">
+            <div class="box live_element" id="N" style="background-color: #99FF66;" onclick="add(event)"> N</div>  
+            <div class="box live_element" id="P" style="background-color: #99FF66;" onclick="add(event)"> P</div> 
+            <div class="box live_element" id="As" style="background-color: #009966  ;" onclick="add(event)"> As</div>  
+            <div class="box live_element" id="Sb" style="background-color: #009966  ;" onclick="add(event)"> Sb</div>  
+            <div class="box live_element" id="Bi" style="background-color: #33FFCC  ;" onclick="add(event)"> Bi</div>  
+            <div class="box live_element" id="Uup" style="background-color: #33FFCC ;" onclick="add(event)"> Uup</div>  
+        </div>
+        <div id="panelTwo">
+            <div class="box live_element" id="O" style="background-color: #99FF66 ;" onclick="add(event)"> O</div>  
+            <div class="box live_element" id="S" style="background-color: #99FF66;" onclick="add(event)">S</div>  
+            <div class="box live_element" id="Se" style="background-color: #99FF66;" onclick="add(event)"> Se</div>  
+            <div class="box live_element" id="Te" style="background-color: #009966  ;" onclick="add(event)"> Te</div>  
+            <div class="box live_element" id="Po" style="background-color: #009966  ;" onclick="add(event)"> Po</div>  
+            <div class="box live_element" id="Uuh" style="background-color: #33FFCC ;" onclick="add(event)"> Uuh</div>  
+        </div>
+        <div id="panelTwo">
+            <div class="box live_element" id="F" style="background-color: #FF9966 ;" onclick="add(event)"> F</div>  
+            <div class="box live_element" id="Cl" style="background-color: #FF9966 ;" onclick="add(event)"> Cl</div>  
+            <div class="box live_element" id="Br" style="background-color: #FF9966 ;" onclick="add(event)"> Br</div> 
+            <div class="box live_element" id="I" style="background-color: #FF9966 ;" onclick="add(event)"> I</div>  
+            <div class="box live_element" id="At" style="background-color: #FF9966 ;" onclick="add(event)"> At</div>  
+            <div class="box live_element" id="Uus" style="background-color: #FF9966 ;" onclick="add(event)"> Uus</div>  
+        </div>
+        <div id="panelOne">
+            <div class="box live_element" id="He" style="background-color:#996699 ;" onclick="add(event)"> He</div>  
+            <div class="box live_element" id="Ne" style="background-color:#996699 ;" onclick="add(event)"> Ne</div>  
+            <div class="box live_element" id="Ar" style="background-color:#996699 ;" onclick="add(event)"> Ar</div>  
+            <div class="box live_element" id="Kr" style="background-color:#996699 ;" onclick="add(event)"> Kr</div>  
+            <div class="box live_element" id="Xe" style="background-color:#996699 ;" onclick="add(event)"> Xe</div>  
+            <div class="box live_element" id="Rn" style="background-color:#996699 ;" onclick="add(event)"> Rn</div>  
+            <div class="box live_element" id="Uuo" style="background-color:#996699 ;" onclick="add(event)"> Uuo</div>  
+        </div>
+
+       
+
+    
+        <div class="bottom">
+            <div class="box live_element"  id="xxx" style="background-color:	#FFFFFF ;border: 0px solid white;" > </div> 
+            <div class="box live_element" id="xxx" style="background-color:	#FFFFFF; ;border: 0px solid white;" > </div>
+       </div>
+
+        <div class="bottom">
+             <div class="box live_element" id="La" style="background-color:#F8C471 ;" onclick="add(event)"> La</div> 
+             <div class="box live_element" id="Ac" style="background-color:#7F8C8D ;" onclick="add(event)"> Ac</div>
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Ce" onclick="add(event)"> Ce</div> 
+             <div class="box live_element" id="Th"  style="background-color:#7F8C8D ;" onclick="add(event)"> Th</div> 
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Pr" onclick="add(event)"> Pr</div>
+             <div class="box live_element" id="Pa" style="background-color:#7F8C8D ;" onclick="add(event)"> Pa</div>
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Nd" onclick="add(event)"> Nd</div> 
+             <div class="box live_element" id="U" style="background-color:#7F8C8D ;" onclick="add(event)"> U</div>
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"   id="Pm" onclick="add(event)"> Pm</div> 
+             <div class="box live_element" id="Np" style="background-color:#7F8C8D ;" onclick="add(event)"> Np</div> 
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Sm" onclick="add(event)"> Sm</div> 
+             <div class="box live_element" id="Pu" style="background-color:#7F8C8D ;" onclick="add(event)"> Pu</div>
+        </div>
+        <div class="bottom">
+             <div class="box live_element"  style="background-color:#F8C471 ;" id="Eu" onclick="add(event)"> Eu</div> 
+             <div class="box live_element" id="Am" style="background-color:#7F8C8D ;" onclick="add(event)"> Am</div> 
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Gd" onclick="add(event)"> Gd</div> 
+             <div class="box live_element" id="Cm"style="background-color:#7F8C8D ;"  onclick="add(event)"> Cm</div> 
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Tb" onclick="add(event)"> Tb</div> 
+             <div class="box live_element" id="Bk" style="background-color:#7F8C8D ;" onclick="add(event)"> Bk</div>
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Dy" onclick="add(event)"> Dy</div> 
+             <div class="box live_element" id="Cf" style="background-color:#7F8C8D ;" onclick="add(event)"> Cf</div> 
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Ho" onclick="add(event)"> Ho</div> 
+             <div class="box live_element" id="Es" style="background-color:#7F8C8D ;" onclick="add(event)"> Es</div> 
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Er" onclick="add(event)"> Er</div> 
+             <div class="box live_element" id="Fm" style="background-color:#7F8C8D ;" onclick="add(event)"> Fm</div>
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Tm" onclick="add(event)"> Tm</div> 
+            <div class="box live_element" id="Md" style="background-color:#7F8C8D ;" onclick="add(event)"> Md</div> 
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Yb" onclick="add(event)"> Yb</div>
+             <div class="box live_element" id="No" style="background-color:#7F8C8D ;" onclick="add(event)"> No</div>
+        </div>
+        <div class="bottom">
+             <div class="box live_element" style="background-color:#F8C471 ;"  id="Lu" onclick="add(event)"> Lu</div> 
+             <div class="box live_element" id="Lr" style="background-color:#7F8C8D ;"  onclick="add(event)"> Lr</div>
+        </div>
+ 
+ 
+    </div> 
+   
+<br>
+
+<table id="myTable" class="table table-striped table-bordered table-hover table-condensed">
+<!--
+  <tr>
+    <th>JARVIS-ID</th>
+    <th>Formula</th>
+  </tr>
+  -->
+</table>
+<br>
+<script>
+
+</script>
+
+
+
+{% load static %} 
+
+<script src="https://www.ctcms.nist.gov/~knc6/header_ml.js"></script> 
+<script src="https://www.ctcms.nist.gov/~knc6/elements.js"></script> 
+<script src="https://www.ctcms.nist.gov/~knc6/speech.js"></script> 
+<script language="JavaScript" id="_fed_an_js_tag" src="https://www.ctcms.nist.gov/js/federated-analytics.all.min.js?agency=NIST&subagency=ctcms&pua=UA-37115410-17&yt=true"></script>
+
+  <script src="https://www.ctcms.nist.gov/~knc6/jmldata.js"></script> 
+                
+                </form>
+   
+    
+
+
+ 
+                <h4>JARVIS-ML was trained on JARVIS-DFT data with Classical Force-field Inspred Descriptors (CFID):<a href="https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.2.083801" target="_blank">  Reference </a><a href="http://www.ctcms.nist.gov/~knc6/pubs.html" target="_blank">, Other publications</a></h4>
+                <a href="http://www.nist.gov/public_affairs/disclaimer.cfm"> NIST Disclaimer</a>
+
+
+ 
+<!-- hitwebcounter Code START -->
+        
+    
+    
+    
+    </body>
+</html>
+
+

@@ -1,0 +1,258 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<style>
+.centered-wrapper {
+    position: relative;
+    text-align: center;
+}
+.centered-wrapper:before {
+    content: "";
+    position: relative;
+#    display: inline-block;
+    width: 0; height: 100%;
+    vertical-align: middle;
+}
+.centered-content {
+#    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.box {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
+    margin: 0px;
+    width: 366px;
+    height: 340px;
+}
+</style>
+
+
+<html lang="en">
+
+	<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q89M6QHG7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Q89M6QHG7');
+</script>
+
+		    <meta charset="UTF-8">
+		        <title>JARVIS-Wannier tight binding</title>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	</head>
+
+ <style>
+.centered-wrapper {
+    position: relative;
+    text-align: center;
+}
+.centered-wrapper:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 0; height: 100%;
+    vertical-align: middle;
+}
+.centered-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.box1 {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
+    margin: 0px;
+    width: 366px;
+    height: 340px;
+}
+
+
+.si-wrapper input {
+  font-size: 1.4em;
+  padding: 0.1em;
+  width: 100%;
+}
+.si-mic {
+  align: right;
+}
+.centered-content {
+	    display: inline-block;
+		        vertical-align: middle;
+}
+
+</style>
+  
+
+
+
+ <link href="https://jarvis-materials-design.github.io/dbdocs/css/bootstrap.min.css" rel="stylesheet">
+ <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/" class="nav-link">HOME</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvisdft/" class="nav-link">DFT</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvisff/" class="nav-link">FF</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvisml/" class="nav-link">ML</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvisus/" class="nav-link">US</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarviswtb/" class="nav-link">WTB</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvisstm/" class="nav-link">STM</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvissolar/" class="nav-link">Solar</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="./optimade" class="nav-link">OPTIMADE</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis.nist.gov/jarvish/" class="nav-link">Hetero</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/usnistgov/jarvis" class="nav-link">Tools</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis-materials-design.github.io/dbdocs/publications/" class="nav-link">Publications</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis-materials-design.github.io/dbdocs/thedownloads/" class="nav-link">Downloads</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://jarvis-materials-design.github.io/dbdocs/tutorials/" class="nav-link">Tutorials</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/JARVIS-Materials-Design/jarvis-tools-notebooks" class="nav-link">Notebooks</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://www.ctcms.nist.gov/~knc6/workshops.html" class="nav-link">Events</a>
+                            </li>
+                        </ul>
+               </div>
+            </div>
+        </div>
+                        
+	<br>
+	<br>
+	<br>
+
+
+
+
+
+	<body class="centered-wrapper" >
+        <script>
+          if(self == top) {
+            document.documentElement.style.display = 'block';
+          } else {
+             top.location = self.location;
+          }
+        </script>
+
+		<div class="centered-content">
+			<a href="https://jarvis.nist.gov/" target="_blank"><image align="middle" id="DOS" src="https://www.ctcms.nist.gov/~knc6/jlogo.png"></image></a><font size="30" color="red">WTB</font><br><br>
+		<form  method="post">
+			<button class="btn-success" type="submit">Submit</button><br>
+		{% csrf_token %}
+                 
+		{{ form|crispy }}
+
+		</form>
+		{% if plot_url is not False %}
+		<img src="data:image/png;base64, {{ plot_url }}" width="800" height="400">
+		{% endif %}
+    {% if maxdiff_bz is not False %}
+       <br>
+     <table border="1" width="500" style='table-layout:fixed' align="center">
+      <tr>
+        <td>Your selected material:</td>
+        <td>{{formula }},{{spg}}, <a href=https://www.ctcms.nist.gov/~knc6/static/JARVIS-DFT/{{jid}} target="_blank" >{{jid}}</a></td>
+      
+       </tr>
+       <tr>
+        <td>Maxdiff (K-Mesh, eV)</td>
+        <td>{{maxdiff_mesh}}</td>
+       </tr>
+
+       <tr>
+        <td>Download WTB file</td>
+	<td><a href="{{download_link}}">Download</a></td>
+       </tr>
+
+        <tr>
+        <td>Maxdiff (High-symmetry, eV)</td>
+        <td>{{maxdiff_bz}}</td>
+       </tr>
+       <tr>
+        <td>Calculation</td>
+        <td>{{calc_type}}</td>
+       </tr>
+       <tr>
+        <td>Nwann</td>
+        <td>{{nwan}}</td>
+       </tr>
+       
+        <tr>
+        <td>Fermi-energy set to zero</td>
+        <td>{{efermi}}</td>
+       </tr>
+         <tr>
+        <td>Computation-time (s)</td>
+        <td>{{total_time}}</td>
+       </tr>
+     </table>
+    {% endif %}
+    <br><br>
+    <p>The JARVSI-WTB app predicts the Wannier Tight-binding hamiltonian derived properties of 3D and 2D materials from the pre-computed <a href="https://www.ctcms.nist.gov/~knc6/JVASP.html" target="_blank">JARVIS-DFT</a> database.<a href="https://arxiv.org/abs/2007.01205" target="_blank">  Reference </a></p>
+        
+        <p> Select options from the dropdown menu and input K-points in Automatic mesh (<a href="https://github.com/usnistgov/jarvis/blob/v2020.6.9/jarvis/examples/vasp/SiOptb88/MAIN-RELAX-bulk%40mp_149/KPOINTS" target="_blank">example</a>) or Reciprocal high-symmetry Brillouin line (<a href="https://github.com/usnistgov/jarvis/blob/v2020.6.9/jarvis/examples/vasp/SiOptb88/MAIN-BAND-bulk%40mp_149/KPOINTS" target="_blank">example</a>) format in the box below. </p> 
+	  <br>
+	   
+
+
+		<br><br>
+		<a href="http://www.nist.gov/public_affairs/disclaimer.cfm"> NIST Disclaimer</a>
+
+                </div>
+	</body>
+</html>

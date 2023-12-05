@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "api_version": "1.1.0",
+    "query": {
+      "representation": "/info"
+    },
+    "more_data_available": false,
+    "schema": "https://schemas.optimade.org/openapi/v1.1/optimade_index.json",
+    "provider": {
+      "name": "Joint Automated Repository for Various Integrated Simulations (JARVIS)",
+      "description": "JARVIS is a repository designed to automate materials discovery using classical force-field, density functional theory, machine learning calculations and experiments.",
+      "prefix": "jarvis",
+      "homepage": "https://jarvis.nist.gov"
+    }
+  },
+  "data": {
+    "type": "info",
+    "id": "/",
+    "attributes": {
+      "api_version": "1.1.0",
+      "available_api_versions": [
+        {
+          "url": "https://jarvis.nist.gov/optimade/jarvisdft/v1",
+          "version": "1.1.0"
+        }
+      ],
+      "formats": [
+        "json",
+        "xml",
+        "yaml"
+      ],
+      "entry_types_by_format": {
+        "json": [
+          "structures"
+        ],
+        "xml": [
+          "structures"
+        ],
+        "yaml": [
+          "structures"
+        ]
+      },
+      "available_endpoints": [
+        "structures",
+        "info",
+        "links",
+        "versions"
+      ],
+      "is_index": false
+    }
+  }
+}

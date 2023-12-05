@@ -1,0 +1,232 @@
+
+
+
+
+<!DOCTYPE html>
+<!-- Developer: Kamal Choudhary, Noah Smith NIST
+The code may not be copied/reused without permission-->
+<meta charset="utf-8">
+<title>JARVIS-Visualization</title>
+{% load static %}
+<link rel="stylesheet"  href="https://www.ctcms.nist.gov/~knc6/speech-input.css">
+<link rel="stylesheet" type="text/css" href="https://www.ctcms.nist.gov/~knc6/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://3dmol.org/build/3Dmol.js"></script>  
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+.jcentered {
+  margin: auto;
+  width: 100%;
+}
+.jright {
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+.jleft {
+  position: absolute;
+  left: 0px;
+  width: 300px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+
+}
+
+</style>
+ <style>
+.centered-wrapper {
+    position: relative;
+    text-align: center;
+}
+.centered-wrapper:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 0; height: 100%;
+    vertical-align: middle;
+}
+.centered-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.box1 {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
+    margin: 0px;
+    width: 366px;
+    height: 340px;
+}
+
+
+.si-wrapper input {
+  font-size: 1.4em;
+  padding: 0.1em;
+  width: 100%;
+}
+.si-mic {
+  align: right;
+}
+.centered-content {
+	    display: inline-block;
+		        vertical-align: middle;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:   #00bfff;
+}
+li {
+    float: left;
+}
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+li a:hover {
+    background-color:#000;
+}
+
+</style>
+  
+
+<ul>
+        <li ><a href="http://www.ctcms.nist.gov/~knc6/JARVIS.html">HOME</a></li>
+        
+        <li ><a href="http://www.ctcms.nist.gov/~knc6/periodic.html">JARVIF-FF</a></li>
+        <li ><a href="http://www.ctcms.nist.gov/~knc6/JVASP.html">JARVIS-DFT</a></li>
+        <li ><a href="https://www.ctcms.nist.gov/jarvisml/">JARVIS-ML</a></li>
+        <li ><a href="http://jarvis.nist.gov">API</a></li>
+        <li ><a href="https://github.com/usnistgov/jarvis">Github</a></li>
+        <li ><a href="http://www.ctcms.nist.gov/~knc6/pubs.html">Publications</a></li>  
+        <li ><a href="http://www.ctcms.nist.gov/~knc6/news.html">News</a></li>  
+        <li ><a href="http://www.ctcms.nist.gov/~knc6/workshops.html">Workshops</a></li>
+        <li ><a href="http://www.ctcms.nist.gov/~knc6/documentation.html">Documentation</a></li>
+        <li ><a href="http://www.ctcms.nist.gov/~knc6/contact.html">Contact</a></li>
+ </ul>
+ <br>
+
+        <body class="centered-wrapper">
+        <script>
+          if(self == top) {
+            document.documentElement.style.display = 'block';
+          } else {
+             top.location = self.location;
+          }
+        </script>
+
+                <div class="centered-content">
+                        <a href="https://jarvis.nist.gov/" target="_blank"><image align="middle" id="DOS" src="https://www.ctcms.nist.gov/~knc6/jlogo.png"></image></a><font size="30" color="red">Visualization</font><br><br>
+
+
+			<br>	<p> These apps are designed to visualize materials data. A few examples of structure visualization is shown above, more examples of other data would be coming soon.</p><br>
+                <form  method="post" style="float: left">
+                        <button class="btn-success" name="poscar">POSCAR</button><br>
+                {% csrf_token %}
+                {{ form1 }}
+                </form>
+
+                <form  method="post" style="float: left">
+                        <button class="btn-success"  name="xyz">XYZ</button><br>
+                {% csrf_token %}
+                {{ form2 }}
+
+                </form>
+
+                <form  method="post" style="float: left">
+                        <button class="btn-success"  name="cif">CIF</button><br>
+                {% csrf_token %}
+                {{ form3 }}
+
+                </form>
+
+                <form  method="post" style="float: left">
+                        <button class="btn-success"  name="pdb">PDB</button><br>
+                {% csrf_token %}
+                {{ form4 }}
+
+                </form>
+
+
+                <br>
+
+                </div>
+        </body>
+
+
+  <div 
+  class="jcentered"
+  id="geometry"
+  style="height: 400px; width: 400px; position: relative;"
+  data-backgroundcolor="0xffffff"
+  >  
+  <span
+    style="
+      display: inline-block;
+      z-index: 1;
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    "
+    >
+    
+    </span>
+  </div>
+<script>
+  var viewer = $3Dmol.createViewer("geometry", {
+    backgroundColor: "white",
+  });
+{% autoescape off %}
+
+viewer.addModel({{xyz}}, "xyz");
+{% endautoescape %}
+  //viewer.setStyle({ sphere: { radius: 0.9 } });
+  
+  viewer.addStyle({ stick: { radius: 0.6 } });
+  viewer.zoomTo();
+  viewer.setClickable({},true,function(atom,viewer,event,container) {
+                      viewer.addLabel(atom.resn+":"+atom.atom,{position: atom, backgroundColor: 'darkgreen', backgroundOpacity: 0.8});
+                  });
+
+var mycolors = $3Dmol.extend({},$3Dmol.elementColors.Jmol);
+//mycolors.Bi = 0xffff00;
+//mycolors.Se = 'silver';
+viewer.setStyle({sphere:{colorscheme:{'prop': 'elem', map:mycolors}}});
+
+  //viewer.setStyle({stick:{colorscheme:"yellowCarbon"}});
+  viewer.render();
+</script>
+
+
+<br>
+<p> The app is under construction.</p>
+<a href="http://www.nist.gov/public_affairs/disclaimer.cfm"> NIST Disclaimer</a>
+
+<br>
+</html>
+
+

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<style>
+.centered-wrapper {
+    position: relative;
+    text-align: center;
+}
+.centered-wrapper:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 0; height: 100%;
+    vertical-align: middle;
+}
+.centered-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.box {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
+    margin: 0px;
+    width: 366px;
+    height: 340px;
+}
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<head>
+		    <meta charset="UTF-8">
+		        <title>JARVIS-STM</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q89M6QHG7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Q89M6QHG7');
+</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/1.4.0/3Dmol-min.js"></script>
+	</head>
+
+
+ <style>
+.centered-wrapper {
+    position: relative;
+    text-align: center;
+}
+.centered-wrapper:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 0; height: 100%;
+    vertical-align: middle;
+}
+.centered-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.box1 {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
+    margin: 0px;
+    width: 366px;
+    height: 340px;
+}
+
+
+.si-wrapper input {
+  font-size: 1.4em;
+  padding: 0.1em;
+  width: 100%;
+}
+.si-mic {
+  align: right;
+}
+.centered-content {
+	    display: inline-block;
+		        vertical-align: middle;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:   #00bfff;
+}
+li {
+    float: left;
+}
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+li a:hover {
+    background-color:#000;
+}
+
+</style>
+  
+
+
+
+
+<ul>
+        <li ><a href="https://jarvis.nist.gov">HOME</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisdft/">DFT</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisff/">FF</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisml/">ML</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisus/">US</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarviswtb/">WTB</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisstm/">STM</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvish/">Hetero</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvissolar/">Solar</a></li>
+        <li ><a href="./optimade">OPTIMADE</a></li>
+        <li ><a href="https://jarvis-materials-design.github.io/dbdocs/thedownloads/">Downloads</a></li>
+        <li ><a href="https://github.com/usnistgov/jarvis">Tools</a></li>
+        <li ><a href="https://jarvis-materials-design.github.io/dbdocs/publications/">Publications</a></li>
+        <li ><a href="https://jarvis-materials-design.github.io/dbdocs/tutorials/">Tutorials</a></li>
+        <li ><a href="https://github.com/JARVIS-Materials-Design/jarvis-tools-notebooks">Notebooks</a></li>
+        <li ><a href="http://www.ctcms.nist.gov/~knc6/workshops.html">Events</a></li>
+ </ul>
+
+
+
+
+	<body class="centered-wrapper">
+        <script>
+          if(self == top) {
+            document.documentElement.style.display = 'block';
+          } else {
+            top.location = self.location;
+          }
+        </script>
+
+		<div class="container ">
+			<a href="https://jarvis.nist.gov/" target="_blank"><image align="middle" id="DOS" src="https://www.ctcms.nist.gov/~knc6/jlogo.png"></image></a><font size="30" color="red">STM</font><br><br><br>
+		    
+		      
+
+		<form  method="post">
+			<button class="btn-success" name="Submit" type="submit">Submit</button><br>
+		{% csrf_token %}
+		{{ form }}
+		<br>
+		<br>
+                {% if plot_url is not False %}
+		 <img src="data:image/png;base64, {{ plot_url }}" width="800" height="400">
+		 {% endif %}
+                
+		</form>
+		<br><br>
+
+		<div class="centered-content">
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+ <a href="https://arxiv.org/abs/1912.09027" target="_blank">Reference</a>
+ <br>
+ <a href="https://github.com/usnistgov/jarvis/blob/master/jarvis/analysis/stm/tersoff_hamann.py" target="_blank">Find details about the JARVIS-Tools script used in this work.</a>
+			<p>This app predicts Tersoff-Hamann approach based scanning tunneling microscopy images of 2D materials in the pre-computed <a href="https://www.ctcms.nist.gov/~knc6/JVASP.html" target="_blank">JARVIS-DFT</a> database. There are 716 materials with positive and negative biases with energy range from 0 eV to 0.5 eV and -0.5 eV to 0 eV ranges respectively. Minimum size of xy-size and zcut height from surface can be provided in Angstrom units. zcut is measured from the topmost atom. By default, it is set as 2 Angstrom. ext is used for constant-current setup and refers to applied current in the arbitrary units. If no value is provided, then default values are used. </p>
+ <br><br><a href="http://www.nist.gov/public_affairs/disclaimer.cfm"> NIST Disclaimer</a>
+                </div>
+
+
+
+
+
+
+	</body>
+</html>

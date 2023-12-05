@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<style>
+.centered-wrapper {
+    position: relative;
+    text-align: center;
+}
+.centered-wrapper:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 0; height: 100%;
+    vertical-align: middle;
+}
+.centered-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.box {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
+    margin: 0px;
+    width: 366px;
+    height: 340px;
+}
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<head>
+		    <meta charset="UTF-8">
+		        <title>JARVIS-Heterostructure</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q89M6QHG7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Q89M6QHG7');
+</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/1.4.0/3Dmol-min.js"></script>
+	</head>
+
+
+ <style>
+.centered-wrapper {
+    position: relative;
+    text-align: center;
+}
+.centered-wrapper:before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 0; height: 100%;
+    vertical-align: middle;
+}
+.centered-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.box1 {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
+    margin: 0px;
+    width: 366px;
+    height: 340px;
+}
+
+
+.si-wrapper input {
+  font-size: 1.4em;
+  padding: 0.1em;
+  width: 100%;
+}
+.si-mic {
+  align: right;
+}
+.centered-content {
+	    display: inline-block;
+		        vertical-align: middle;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:   #00bfff;
+}
+li {
+    float: left;
+}
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+li a:hover {
+    background-color:#000;
+}
+
+</style>
+  
+<ul>
+        <li ><a href="https://jarvis.nist.gov">HOME</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisdft/">DFT</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisff/">FF</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisml/">ML</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisus/">US</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarviswtb/">WTB</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvisstm/">STM</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvish/">Hetero</a></li>
+        <li ><a href="https://jarvis.nist.gov/jarvissolar/">Solar</a></li>
+        <li ><a href="./optimade">OPTIMADE</a></li>
+        <li ><a href="https://jarvis-materials-design.github.io/dbdocs/thedownloads/">Downloads</a></li>
+        <li ><a href="https://github.com/usnistgov/jarvis">Tools</a></li>
+        <li ><a href="https://jarvis-materials-design.github.io/dbdocs/publications/">Publications</a></li>
+        <li ><a href="https://jarvis-materials-design.github.io/dbdocs/tutorials/">Tutorials</a></li>
+        <li ><a href="https://github.com/JARVIS-Materials-Design/jarvis-tools-notebooks">Notebooks</a></li>
+        <li ><a href="http://www.ctcms.nist.gov/~knc6/workshops.html">Events</a></li>
+ </ul>
+
+
+
+
+
+
+
+	<body class="centered-wrapper">
+        <script>
+          if(self == top) {
+            document.documentElement.style.display = 'block';
+          } else {
+            top.location = self.location;
+          }
+        </script>
+
+		<div class="centered-content">
+			<a href="https://jarvis.nist.gov/" target="_blank"><image align="middle" id="DOS" src="https://www.ctcms.nist.gov/~knc6/jlogo.png"></image></a><font size="30" color="red">Hetero</font><br><br><br>
+		<h2> First app </h2>
+		  <p>This app predicts 2D heterostructure type and related data from the pre-computed <a href="https://www.ctcms.nist.gov/~knc6/JVASP.html" target="_blank">JARVIS-DFT</a> database for 2D materials.</p>
+		    
+		    <p>Select a film and a substrate options (with chemical formula, space-group and JARVIS-ID information) from the dropdown menu and click 'Submit' button.</p>
+		      
+
+		<form  method="post">
+			<button class="btn-success" name="Submit" type="submit">Submit</button><br>
+		{% csrf_token %}
+		{{ form }}
+
+                
+		</form>
+		{% if film is not False %}
+                 <textarea class="box" id="film" name="film" rows="10" cols="20">{% if film is not False %}{{ film }}{% endif %}</textarea> 
+                {% endif %}
+		{% if subs is not False %}
+                 <textarea class="box" id="subs" name="subs" rows="10" cols="20">{% if subs is not False %}{{ subs }}{% endif %}</textarea>
+                {% endif %}
+		{% if comb is not False %}
+                 <textarea class="box" id="comb" name="comb" rows="10" cols="20">{% if comb is not False %}{{ comb }}{% endif %}</textarea>
+                {% endif %}
+                </div>
+		<br>
+                {% if plot_url is not False %}
+                 <img src="data:image/png;base64, {{ plot_url }}" width="450" height="350">
+                {% endif %}
+		<br><br>
+
+
+    {% if comb is not False %}
+       <br>
+     <table border="1" width="900" style='table-layout:fixed' align="center">
+      <tr>
+        <td>Selected materials:</td>
+	<td> {{label1}}, {{label2}}</td>
+       </tr>
+
+       <tr>
+        <td>CBMs</td>
+	<td>{{cbm_a}}, {{cbm_b}}</td>
+       </tr>
+
+       <tr>
+        <td>VBMs</td>
+	<td>{{vbm_a}}, {{vbm_b}}</td>
+       </tr>
+
+        <tr>
+        <td>Mismath (u,v,angle)</td>
+	<td>{{mism_u}}, {{mism_v}}, {{mism_angle}}</td>
+       </tr>
+
+        <tr>
+        <td>Interface type</td>
+	<td>{{int_type}}</td>
+       </tr>
+
+        <tr>
+        <td>Stacking</td>
+	<td>{{stack}}</td>
+       </tr>
+     </table>
+    {% endif %}
+    <br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="centered-content">
+		<h2> Second app </h2>
+		  <p>This app is designed to make a heterostructure given two surface/2D materials. Enter film and substrate structures below and hit 'Send'.</p>
+
+		<form  method="post">
+			<button class="btn-success" name="Send" type="submit">Send</button><br>
+		{% csrf_token %}
+		{{ form2 }}
+		{% if comb_2 is not False %}
+                
+                 <textarea class="box" id="film" name="film" rows="10" cols="20">{% if comb_2 is not False %}{{ comb_2 }}{% endif %}</textarea> 
+                {% endif %}
+		</form>
+
+
+		{% if comb_2 is not False %}
+
+                <table border="1" width="500" style='table-layout:fixed' align="center">
+      <tr>
+        <td>Selected materials:</td>
+	<td> {{label1}}, {{label2}}</td>
+       </tr>
+
+        <tr>
+        <td>Mismath (u,v,angle)</td>
+	<td>{{mism_u_2}}, {{mism_v_2}}, {{mism_angle_2}}</td>
+       </tr>
+
+              </table>
+
+
+                {% endif %}
+
+
+
+		<br>
+		<br>
+		<br>
+		<br>
+ <a href="https://arxiv.org/abs/2004.03025" target="_blank">Reference: Efficient Computational Design of 2D van der Waals Heterostructures: Band-Alignment, Lattice-Mismatch, Web-app Generation and Machine-learning</a>
+ <br><br><a href="http://www.nist.gov/public_affairs/disclaimer.cfm"> NIST Disclaimer</a>
+                </div>
+
+
+
+
+
+
+	</body>
+</html>

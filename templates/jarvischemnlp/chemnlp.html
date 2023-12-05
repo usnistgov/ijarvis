@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://jarvis.nist.gov/jarvisdft/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Developers: Kamal Choudhary, Noah Smith, NIST, Mark Kasule
+  The code may not be copied/reused without permission. Do Not Steal 😊 -->
+  <meta name="description"
+    content="JARVIS (Joint Automated Repository for Various Integrated Simulations) is a repository designed to
+    automate materials discovery and optimization using classical force-field, density functional theory, machine learning calculations and experiments.">
+
+  <meta name="authors" content="Kamal Choudhary, Noah Smith, NIST, Mark Kasule">
+  <meta name="keywords"
+    content="jarvis, classical force-field, density functional theory, machine learning calculations, experiments">
+
+
+  <link rel="shortcut icon" href="https://jarvis.nist.gov/static/img/cdcs_logo.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="/static/JARVIS-DFT_files/jdft_style.css">
+  <link rel="stylesheet" type="text/css" href="/static/dft-css/style.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/dft-files/style.css">
+  <link rel="stylesheet" type="text/css" href="/static/JARVIS-DFT_files/speech-input.css">
+  <link rel="stylesheet" type="text/css" href="/static/JARVIS-DFT_files/style.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/nist-combined.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/static/slider.css">
+  <link href="/static/JARVIS-DFT_files/icon" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/static/JARVIS-DFT_files/jquery.mobile-1.4.5.min.css">
+
+  <!--Bootstrap CDN-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+  <title>JARVIS-ChemNLP</title>
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script type="text/javascript" async="" src="/static/JARVIS-DFT_files/ga.js"></script>
+  <script async="" src="/static/JARVIS-DFT_files/js"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-1Q89M6QHG7');
+  </script>
+
+  <script async="" src="/static/JARVIS-DFT_files/jquery.min.js"></script>
+
+</head>
+
+
+<body>
+
+  <style>
+    /* Change color of dropdown links on hover */
+    #drop_button:hover {
+      width: 100%;
+      color: #fff !important;
+    }
+
+    #drop_links {
+      color: #fff;
+      padding: 0.5rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      text-align: left;
+    }
+
+    #drop_links:hover {
+      background-image: linear-gradient(60deg, #1f1e1e 0%, #161618 40%, #050505 90%);
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+      text-decoration: none;
+      display: block;
+      color: #11c0cc !important;
+      text-align: center;
+    }
+
+    #drop_down:hover #drop_down_content {
+      display: block !important;
+      color: #fff !important;
+      width: 100% !important;
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+    }
+
+    #drop_button:hover {
+      color: #fff !important;
+
+    }
+  </style>
+
+
+  <class="" data-new-gr-c-s-check-loaded="14.1041.0" data-gr-ext-installed="">
+
+    <div class="page-loading" id="page-loading">
+      <img src="/static/images/loading-circle.gif" width="70" height="70">
+    </div>
+
+    <div class="content" id="content">
+      
+      <div id="nistheadergoeshere">
+        <header class="nist-header" id="nist-header" role="banner">
+          <!--Free Image source: https://img.icons8.com/material-outlined/344/ffffff/menu--v1.png -->
+          <img src="/static/images/menu-icon.svg" alt="menu button image" id="press_button" width="auto" height="30">
+          <a href="https://www.nist.gov/" title="National Institute of Standards and Technology"
+            class="nist-header__logo-link" rel="home" style="text-decoration: none;">
+          <!--Nist Logo-->
+          <svg class="nist-header__logo-image" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-237 385.7 109.7 29.3" height="19" width="auto" fill="#fff" paddin> <title>National Institute of Standards and Technology</title> <g> <path class="st0" d="M-231,415h-6v-23.1c0,0,0-4.4,4.4-5.8c4-1.3,6.6,1.3,6.6,1.3l19.7,21.3c1,0.6,1.4,0,1.4-0.6v-22h6.1V409 c0,1.9-1.6,4.4-4,5.3c-2.4,0.9-4.9,0.9-7.9-1.7l-18.5-20c-0.5-0.5-1.8-0.6-1.8,0.4L-231,415L-231,415z"></path> <path class="st0" d="M-195,386.1h6.1v20.7c0,2.2,1.9,2.2,3.6,2.2h26.8c1.1,0,2.4-1.3,2.4-2.7c0-1.4-1.3-2.8-2.5-2.8H-176 c-3,0.1-9.2-2.7-9.2-8.5c0-7.1,5.9-8.8,8.6-9h49.4v6.1h-12.3V415h-6v-22.9h-30.2c-2.9-0.2-4.9,4.7-0.2,5.4h18.6 c2.8,0,7.4,2.4,7.5,8.4c0,6.1-3.6,9-7.5,9H-185c-4.5,0-6.2-1.1-7.8-2.5c-1.5-1.5-1.7-2.3-2.2-5.3L-195,386.1 C-194.9,386.1-195,386.1-195,386.1z"></path> </g> </svg>
+
+          </a>
+        </header>
+      </div>
+      
+      <!--Nav bar-->
+      <div class="menu_bar">
+        <ul id="menu_list">
+          <!--Drop down Menu-->
+          <li id="drop_down">
+
+            <button id="drop_button-left" style="background: none; color: white; border: none;">JARVIS</button>
+            <!--Drop down Content-->
+            <div id="drop_down_content-left">
+              <a id="drop_links" href="https://jarvis.nist.gov/jarvisdft/">Density Functional Theory</a>
+              <a id="drop_links" href="https://jarvis.nist.gov/jarvisff/">Force Field</a>
+              <a id="drop_links" href="https://jarvis.nist.gov/jarvisml/">Machine Learning</a>
+              <a id="drop_links" href="https://github.com/usnistgov/jarvis">Tools</a>
+              <a id="drop_links" href="https://jarvis.nist.gov/jarvisus/">US</a>
+              <a id="drop_links" href="https://jarvis.nist.gov/jarvissolar/">Solar</a>
+              <a id="drop_links" href="https://jarvis.nist.gov/jarviswtb/">WTB </a>
+              <a id="drop_links" href="https://jarvis.nist.gov/jarvisstm/">STM </a>
+              <a id="drop_links" href="https://jarvis.nist.gov/jarvish/">Hetero </a>
+              <a id="drop_links" href="https://jarvis.nist.gov/optimade/">OPTIMADE </a>
+
+            </div>
+          </li>
+
+          <li>
+            <a href="https://jarvis-tools.readthedocs.io/en/master/publications.html">Publications</a>
+          </li>
+          <li>
+            <a href="https://github.com/JARVIS-Materials-Design/jarvis-tools-notebooks">Colab</a>
+          </li>
+          <li>
+            <a href="https://jarvis-tools.readthedocs.io/en/master/databases.html">Downloads</a>
+          </li>
+          <li>
+            <a href="https://jarvis-tools.readthedocs.io/en/master/tutorials.html">Tutorials</a>
+          </li>
+          <li>
+            <a href="https://www.ctcms.nist.gov/~knc6/workshops.html">Events </a>
+          </li>
+
+          <!-- right bar-->
+          <li id="right-list">
+            <a href="https://jarvis.nist.gov/login">
+              <i class="fa fa-sign-in"></i>Log In / Sign Up
+            </a>
+          </li>
+
+          <!--Drop down Menu-->
+          <li id="drop_down">
+            <button id="drop_button-left" style="background: none; color: white; border: none;">Help</button>
+            <!--Drop down Content-->
+            <div id="drop_down_content-right">
+              <a id="drop_links" href="https://jarvis.nist.gov/docs/api">API
+                Documentation</a>
+              <a id="drop_links" href="https://jarvis.nist.gov/contact">Contact</a>
+              <a id="drop_links" href="https://jarvis.nist.gov/help">Help</a>
+            </div>
+          </li>
+          <!--End drop downs menu-->
+        </ul>
+      </div>
+
+      <!--Logo-->
+      <div class="logo-display">
+        <div>
+          <h1 id="title_text">JARVIS-ChemNLP</h1>
+        </div>
+      </div>
+
+      <!--Search Bar-->
+      <div class="container main-interphase" id="main-interphase">
+
+        <!--PERIODIC TABLE SEARCH POP UP SEARCH MENU-->
+        <div class="periodic-search" id="periodic-search" style="display: none;">
+          <div>
+            <img src="/static/JARVIS-DFT_files/search-image.svg" onclick="advsearch()">
+          </div>
+          <div>
+            <img src="/static/JARVIS-DFT_files/refresh-image.svg" onclick="location.reload()">
+          </div>
+        </div>
+
+        <div class="main-panel">
+
+          <!--Adv title-->
+          <div class="section-search">
+            <div id="search-title">
+              <h2>Search Elements</h2>
+            </div>
+
+            <div class="voice-div">
+              <div class="si-wrapper wrapper-items">
+                <input type="text" id="mytext" class="si-input" placeholder=" Speak or Type Element to search..">
+
+                <button class="si-btn">
+                  speech input
+                  <span class="si-mic"></span>
+                  <span class="si-holder"></span>
+                </button>
+
+              </div>
+              
+              <!--SEARCH BUTTONS-->
+              <div class="search-btns">
+                <button type="submit" onclick="advsearch()" class="btn btn btn-primary" id="searchButton">
+                  <img src="/static/images/search-image.svg" width="15" height="auto" />
+                  Search</button>
+              </div>
+              <div class="search-btns">
+                <button onclick="location.reload();" class="btn btn btn-success" id="refreshButton">
+                  <img src="/static/images/refresh-image.svg" width="15" height="auto" />
+                  Refresh</button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!--MAIN SEARCH AND PERIODIC BOX-->
+          <div class="main-box">
+
+            <!--SEARCH BAR MENU -->
+            <div class="panel-box-main">
+
+              <!--Scroll Down effect-->
+              <div class="scroll-div">
+                <div>
+                  <p>Scroll Down</p>
+                </div>
+                <div>
+                  <img src="/static/JARVIS-DFT_files/scroll-down.gif" width="15" height="auto" alt="scroll down image">
+                </div>
+              </div>
+
+              <div class="search-panel">
+
+                <!--ADV SEARCH-->
+                <div class="advanced-search">
+
+                  <h2>Advanced search</h2>
+
+                  <!--Inspired from http://nccr-marvel.ch/ -->
+                  <div class="adv-grid">
+                    <!--first Input Section-->
+                    <div class="grid-box">
+                      <div class="adv-grid-box">
+                        <div class="input-group">
+                          <span class="input-group-addon">Elements</span>
+                          <input title="search for elements " class="form-control input-default" id="compobox"
+                            name="compobox" type="text" value="" placeholder="Ni-Al-">
+                        </div>
+                      </div>
+
+                      <div class="adv-grid-box">
+                        <div class="input-group">
+                          <span class="input-group-addon">ArXiv-ID </span>
+                          <input class="form-control input-default" id="jidbox" name="jidbox" type="text"
+                            placeholder="XYZ" value="">
+                        </div>
+                      </div>
+                      <div class="adv-grid-box">
+                        <div class="input-group">
+                          <span class="input-group-addon">Author </span>
+                          <input class="form-control input-default" id="crys" name="crys" type="text"
+                            placeholder="cubic" value="">
+                        </div>
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!--PERIODIC BOX-->
+            <div class="periodic-box">
+
+              <!--BEGINNING OF TABLE-->
+              <div class="container" id="container">
+
+                <!--TOP GRID-->
+                <div class="centred-box-main" id="grid-container-1">
+
+                  <div class="grid-box-periodic">
+                    <!--First row-->
+                    <div class="grid-item box live_element green-grid-items" id="H" onclick="add(event)">H</div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item box live_element red-grid-items" id="He" onclick="add(event)"
+                      onclick="add(event)">
+                      He</div>
+
+                    <!--Second row-->
+                    <div class="grid-item box live_element red-grid-items" id="Li" onclick="add(event)">Li</div>
+                    <div class="grid-item box live_element orange-grid-items" id="Be" onclick="add(event)">Be</div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item box live_element yellow-grid-items" id="B" onclick="add(event)">B</div>
+                    <div class="grid-item box live_element green-grid-items" id="C" onclick="add(event)">C</div>
+                    <div class="grid-item box live_element green-grid-items" id="N" onclick="add(event)">N</div>
+                    <div class="grid-item box live_element green-grid-items" id="O" onclick="add(event)">O</div>
+                    <div class="grid-item box live_element orange-grid-items" id="Cl" onclick="add(event)">Cl</div>
+                    <div class="grid-item box live_element red-grid-items" id="Ne" onclick="add(event)">Ne</div>
+
+                    <!--Third Row-->
+                    <div class="grid-item box live_element red-grid-items" id="Na" onclick="add(event)">Na</div>
+                    <div class="grid-item box live_element orange-grid-items" id="Mg" onclick="add(event)">Mg</div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item box live_element purple-grid-items" id="Al" onclick="add(event)">Al</div>
+                    <div class="grid-item box live_element yellow-grid-items" id="Si" onclick="add(event)">Si</div>
+                    <div class="grid-item box live_element green-grid-items" id="P" onclick="add(event)">P</div>
+                    <div class="grid-item box live_element green-grid-items" id="S" onclick="add(event)">S</div>
+                    <div class="grid-item box live_element orange-grid-items" id="F" onclick="add(event)">F</div>
+                    <div class="grid-item box live_element red-grid-items" id="Ar" onclick="add(event)">Ar</div>
+
+                    <!--Forth Row-->
+                    <div class="grid-item box live_element red-grid-items" id="K" onclick="add(event)">K</div>
+                    <div class="grid-item box live_element orange-grid-items" id="Ca" onclick="add(event)">Ca</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Sc" onclick="add(event)">Sc</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Ti" onclick="add(event)">Ti</div>
+                    <div class="grid-item box live_element blue-grid-items" id="V" onclick="add(event)">V</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Cr" onclick="add(event)">Cr</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Mn" onclick="add(event)">Mn</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Fe" onclick="add(event)">Fe</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Co" onclick="add(event)">Co</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Ni" onclick="add(event)">Ni</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Cu" onclick="add(event)">Cu</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Zn" onclick="add(event)">Zn</div>
+                    <div class="grid-item box live_element purple-grid-items" id="Ga" onclick="add(event)">Ga</div>
+                    <div class="grid-item box live_element yellow-grid-items" id="Ge" onclick="add(event)">Ge</div>
+                    <div class="grid-item box live_element yellow-grid-items" id="As" onclick="add(event)">As</div>
+                    <div class="grid-item box live_element green-grid-items" id="Se" onclick="add(event)">Se</div>
+                    <div class="grid-item box live_element orange-grid-items" id="Br" onclick="add(event)">Br</div>
+                    <div class="grid-item box live_element red-grid-items" id="Kr" onclick="add(event)">Kr</div>
+
+                    <!--Fifth Row-->
+                    <div class="grid-item box live_element red-grid-items" id="Rb" onclick="add(event)">Rb</div>
+                    <div class="grid-item box live_element orange-grid-items" id="Sr" onclick="add(event)">Sr</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Y" onclick="add(event)">Y</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Zr" onclick="add(event)">Zr</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Nb" onclick="add(event)">Nb</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Mo" onclick="add(event)">Mo</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Tc" onclick="add(event)">Tc</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Ru" onclick="add(event)">Ru</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Rh" onclick="add(event)">Rh</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Pd" onclick="add(event)">Pd</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Ag" onclick="add(event)">Ag</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Cd" onclick="add(event)">Cd</div>
+                    <div class="grid-item box live_element purple-grid-items" id="In" onclick="add(event)">In</div>
+                    <div class="grid-item box live_element purple-grid-items" id="Sn" onclick="add(event)">Sn</div>
+                    <div class="grid-item box live_element yellow-grid-items" id="Sb" onclick="add(event)">Sb</div>
+                    <div class="grid-item box live_element yellow-grid-items" id="Te" onclick="add(event)">Te</div>
+                    <div class="grid-item box live_element orange-grid-items" id="I" onclick="add(event)">I</div>
+                    <div class="grid-item box live_element red-grid-items" id="Xe" onclick="add(event)">Xe</div>
+
+                    <!--Sixth Row-->
+                    <div class="grid-item box live_element red-grid-items" id="Cs" onclick="add(event)">Cs</div>
+                    <div class="grid-item box live_element orange-grid-items" id="Ba" onclick="add(event)">Ba</div>
+                    <div class="grid-item box live_element super-blue-grid-items" id="*" onclick="add(event)">*
+                    </div>
+                    <div class="grid-item box live_element blue-grid-items" id="Hf" onclick="add(event)">Hf</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Ta" onclick="add(event)">Ta</div>
+                    <div class="grid-item box live_element blue-grid-items" id="W" onclick="add(event)">W</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Re" onclick="add(event)">Re</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Os" onclick="add(event)">Os</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Ir" onclick="add(event)">Ir</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Pt" onclick="add(event)">Pt</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Au" onclick="add(event)">Au</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Hg" onclick="add(event)">Hg</div>
+                    <div class="grid-item box live_element purple-grid-items" id="Tl" onclick="add(event)">Tl</div>
+                    <div class="grid-item box live_element purple-grid-items" id="Pb" onclick="add(event)">Pb</div>
+                    <div class="grid-item box live_element purple-grid-items" id="Bi" onclick="add(event)">Bi</div>
+                    <div class="grid-item box live_element purple-grid-items" id="Po" onclick="add(event)">Po</div>
+                    <div class="grid-item box live_element yellow-grid-items" id="At" onclick="add(event)">At</div>
+                    <div class="grid-item box live_element red-grid-items" id="Rn" onclick="add(event)">Rn</div>
+
+                    <!--Sixth Row-->
+                    <div class="grid-item box live_element red-grid-items" id="Fr" onclick="add(event)">Fr</div>
+                    <div class="grid-item box live_element orange-grid-items" id="Ra" onclick="add(event)">Ra</div>
+                    <div class="grid-item box live_element green-grid-items" id="*" onclick="add(event)">*</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Rf" onclick="add(event)">Rf</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Db" onclick="add(event)">Db</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Sg" onclick="add(event)">Sg</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Bh" onclick="add(event)">Bh</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Hs" onclick="add(event)">Hs</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Mt" onclick="add(event)">Mt</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Ds" onclick="add(event)">Ds</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Rg" onclick="add(event)">Rg</div>
+                    <div class="grid-item box live_element blue-grid-items" id="Cn" onclick="add(event)">Cn</div>
+                    <div class="grid-item box live_element green-grid-items" id="Nh">Nh</div>
+                    <div class="grid-item box live_element green-grid-items" id="Fl">Fl</div>
+                    <div class="grid-item box live_element green-grid-items" id="Mc">Mc</div>
+                    <div class="grid-item box live_element green-grid-items" id="Lv">Lv</div>
+                    <div class="grid-item box live_element green-grid-items" id="Ts">Ts</div>
+                    <div class="grid-item box live_element green-grid-items" id="Og">Og</div>
+
+                    <!--Seventh Row-->
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="La" onclick="add(event)">La
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Ce" onclick="add(event)">Ce
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Pr" onclick="add(event)">Pr
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Nd" onclick="add(event)">Nd
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Pm" onclick="add(event)">Pm
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Sm" onclick="add(event)">Sm
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Eu" onclick="add(event)">Eu
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Gd" onclick="add(event)">Gd
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Tb" onclick="add(event)">Tb
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Dy" onclick="add(event)">Dy
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Ho" onclick="add(event)">Ho
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Er" onclick="add(event)">Er
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Tm" onclick="add(event)">Tm
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Yb" onclick="add(event)">Yb
+                    </div>
+                    <div class="grid-item box live_element sky-blue-grid-items" id="Lu" onclick="add(event)">Lu
+                    </div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+
+                    <!--Eighth Row-->
+                    <div class="grid-item"></div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Ac" onclick="add(event)">Ac
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Th" onclick="add(event)">Th
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Pa" onclick="add(event)">Pa
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="U" onclick="add(event)">U
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Np" onclick="add(event)">Np
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Pu" onclick="add(event)">Pu
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Am" onclick="add(event)">Am
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Cm" onclick="add(event)">Cm
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Bk" onclick="add(event)">Bk
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Cf" onclick="add(event)">Cf
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Es" onclick="add(event)">Es
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Fm" onclick="add(event)">Fm
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Md" onclick="add(event)">Md
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="No" onclick="add(event)">No
+                    </div>
+                    <div class="grid-item box live_element light-green-grid-items" id="Lr" onclick="add(event)">Lr
+                    </div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!--RESULTS SECTION-->
+          <div class="container grid-container-2">
+
+            <!--RESULTS HEADER-->
+            <div id="pText-display">
+              <font id="pText"></font>
+            </div>
+          </div>
+
+          <!--RESULTS TABLE-->
+          <section id="table-section">
+
+
+            <div class="table-div">
+              <table id="table-sort" class="myTableStyle tableSection">
+                <tbody>
+
+            <tr>
+              <th id="header" onclick="sortTable(0)">ArXiv-ID</th>
+              <th id="header" onclick="sortTable(1)">Link</th>
+              <th id="header" onclick="sortTable(2)">Title</th>
+              <th id="header" onclick="sortTable(3)">Year</th>
+              <th id="header" onclick="sortTable(4)">Authors</th>
+
+            </tr>
+
+
+
+                </tbody>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <!--END OF RESULT TABLE-->
+
+          <!--FOOTER-->
+          <div class="footer">
+
+            <div class="footer-1">
+              <h4>References:</h4>
+              <button type="button">
+                <a href="https://jarvis-tools.readthedocs.io/en/master/publications.html" target="_blank">Find the
+                  most
+                  updated
+                  publication list here</a>
+              </button>
+            </div>
+                <h4>JARVIS-ChemNLP was built using ArXiv dataset and <a href="https://github.com/usnistgov/chemnlp" target="_blank"> ChemNLP </a> package. The webpage is under construction. 
+
+            <div class="footer-2">
+
+              <div class="footer-details">
+
+                <a href="http://www.nist.gov/public_affairs/disclaimer.cfm">NIST Disclaimer</a>
+              </div>
+
+              <div class="footer-media">
+
+                <a href="https://github.com/usnistgov/jarvis" target="_blank">
+                  <img id="DOS" src="/static/JARVIS-DFT_files/github.png">
+                </a>
+
+                <a href="https://figshare.com/authors/Kamal_Choudhary/4445539" target="_blank">
+                  <img id="DOS" src="/static/JARVIS-DFT_files/favicon-196x196.png">
+                </a>
+
+
+                <a href="https://www.researchgate.net/project/JARVIS" target="_blank">
+                  <img id="DOS" src="/static/JARVIS-DFT_files/rg.png">
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="footer-menu">
+        <div class="container" id="nistfootergoeshere">
+          <footer class="nist-footer">
+            <div>
+              <div class="nist-footer__menu" role="navigation">
+                <a href="https://www.nist.gov/privacy-policy">Site Privacy</a>
+                <a href="https://www.nist.gov/oism/accessibility">Accessibility</a>
+                <a href="https://www.nist.gov/privacy">Privacy Program</a>
+                <a href="https://www.nist.gov/oism/copyrights">Copyrights</a>
+                <a href="https://www.commerce.gov/vulnerability-disclosure-policy">Vulnerability Disclosure</a>
+                <a href="https://www.nist.gov/no-fear-act-policy">No Fear Act Policy</a>
+                <a href="https://www.nist.gov/foia">FOIA</a>
+                <a href="https://www.nist.gov/environmental-policy-statement">Environmental Policy</a>
+                <a href="https://www.nist.gov/summary-report-scientific-integrity">Scientific Integrity</a>
+                <a href="https://www.nist.gov/nist-information-quality-standards">Information Quality
+                  Standards</a>
+                <a href="https://www.commerce.gov/">Commerce.gov</a>
+                <a href="https://www.science.gov/">Science.gov</a>
+                <a href="https://www.usa.gov/">USA.gov</a>
+                <a href="https://vote.gov/">Vote.gov</a>
+              </div>
+            </div>
+            <div class="nist-footer__logo">
+              <a href="https://www.nist.gov/" title="National Institute of Standards and Technology"
+                class="nist-footer__logo-link" rel="home">
+                <img src="/static/NIST-JARVIS_files/nist_logo_centered_rev.svg"
+                  alt="National Institute of Standards and Technology logo" />
+              </a>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+    </div>
+
+
+    <!--Scripts-->
+    <script src="/static/JARVIS-DFT_files/loading-animation.js"></script>
+    <!-- <script src="/static/JARVIS-DFT_files/dft_app.js"></script>  -->
+    <script src="/static/JARVIS-DFT_files/app.js"></script>
+    <script src="/static/JARVIS-DFT_files/menu_animation.js"></script>
+    <script src="/static/JARVIS-DFT_files/sortTable.js"></script>
+    <script src="/static/js/jnlpdata.js"></script>
+    <script src="/static/js/header_nlp.js"></script>
+    <script src="/static/JARVIS-DFT_files/elements.js"></script>
+    <script src="/static/JARVIS-DFT_files/speech.js"></script>
+
+    <!-- Bootstrap CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <!--End Bootsrap CNN Ending-->
+
+    <script language="JavaScript" id="_fed_an_js_tag" src="/static/JARVIS-DFT_files/federated-analytics.all.min.js">
+    </script>
+    <script src="/static/JARVIS-DFT_files/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <!-- <script src="/static/JARVIS-DFT_files/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="/static/JARVIS-DFT_files/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script> -->
+</body>
+
+</html>
