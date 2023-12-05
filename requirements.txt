@@ -1,0 +1,16 @@
+python-dotenv==0.21.0
+drf_yasg
+psycopg2-binary
+celery==5.2.*
+Django==3.2.*
+phonopy==2.20.0
+mongoengine==0.23.0
+scikit-learn==0.22.2
+lightgbm==2.2.1
+jarvis-tools==2023.05.26
+alignn==2023.06.20
+django-crispy-forms==1.9.2
+django-allauth==0.46.0
+django-jsonfield==1.4.1
+django-filter==22.1
+djangorestframework-queryfields==1.0.0
