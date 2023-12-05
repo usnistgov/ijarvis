@@ -12,7 +12,7 @@ Class-based views
 Including another URLconf
     1. Add a URL to urlpatterns:  re_path(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import include,url
+from django.conf.urls import include #,url
 from django.contrib import admin
 from django.urls import path, re_path
 from core_main_app.admin import core_admin_site

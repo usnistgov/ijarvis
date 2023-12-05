@@ -1,12 +1,12 @@
 from django.db import models
 from django.conf import settings
-try:
-   #from jsonfield import JSONField
-   from django.contrib.postgres.fields import JSONField
-except Exception:
-   from jsonfield import JSONField
-   pass
-
+#try:
+#   #from jsonfield import JSONField
+#   from django.contrib.postgres.fields import JSONField
+#except Exception:
+#   from jsonfield import JSONField
+#   pass
+from django.db.models import JSONField
 # USER = settings.AUTH_USER_MODEL
 
 
