@@ -6,7 +6,7 @@ asttokens==2.1.0
 attrs==22.1.0
 backcall==0.2.0
 billiard==3.6.4.0
-black==22.10.0
+black==24.3.0
 blinker==1.4
 blob-utils==1.14.0
 celery==5.2.3
